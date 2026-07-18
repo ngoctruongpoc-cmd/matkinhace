@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: main # Đảm bảo tên nhánh này trùng với nhánh chính trên GitHub của bạn
+  name: github
+  repo: ngoctruongpoc-cmd/matkinhace # Phải đúng tên Repo đại ca vừa tạo
+  branch: main
 
 media_folder: "images" # Thư mục lưu trữ hình ảnh
 public_folder: "images" # Đường dẫn hiển thị ảnh trên web
