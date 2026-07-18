@@ -1,0 +1,7233 @@
+/*==================================================
+ACE VISION WEBSITE
+STYLE.CSS
+
+Version : 1.0
+Author  : Huỳnh Thanh + ChatGPT
+
+====================================================
+
+TABLE OF CONTENT
+
+01 RESET
+02 ROOT VARIABLES
+03 GLOBAL
+04 CONTAINER
+05 TYPOGRAPHY
+06 BUTTON
+07 TOPBAR
+08 HEADER
+09 LOGO
+10 MENU
+11 HEADER ACTION
+12 HERO
+13 CATEGORY
+14 BRANDS
+15 PRODUCTS
+16 PROMOTION
+17 SERVICES
+18 WHY CHOOSE ACE
+19 TESTIMONIAL
+20 BLOG
+21 CTA
+22 FOOTER
+23 FORM
+24 MODAL
+25 LOADING
+26 ANIMATION
+27 RESPONSIVE 1200
+28 RESPONSIVE 992
+29 RESPONSIVE 768
+30 RESPONSIVE 576
+
+==================================================*/
+/* ĐẶT ĐOẠN NÀY LÊN ĐẦU TIÊN CỦA FILE STYLE.CSS */
+.phone-ring-effect {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  animation: phone-shake-anim 2.5s ease-in-out infinite !important;
+  transform-origin: center !important;
+}
+
+.phone-ring-effect:hover {
+  transform: scale(1.08) !important;
+  transition: transform 0.2s ease !important;
+}
+
+@keyframes phone-shake-anim {
+  0%,
+  100%,
+  25% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  35% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  45% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(-6deg) scale(1.1);
+  }
+  55% {
+    transform: rotate(6deg) scale(1.1);
+  }
+  60% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  65%,
+  95% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+/*==================================================
+SECTION 01
+RESET
+==================================================*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+
+  padding: 0;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+}
+
+picture {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+
+  font: inherit;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+table {
+  border-collapse: collapse;
+
+  border-spacing: 0;
+}
+/*==================================================
+SECTION 02
+ROOT VARIABLES
+==================================================*/
+
+:root {
+  /*==============================
+    COLOR SYSTEM
+    ==============================*/
+
+  --primary: #149b97;
+
+  --primary-dark: #0f7f7b;
+
+  --primary-light: #eaf8f7;
+
+  --secondary: #0b1320;
+
+  --text: #222222;
+
+  --text-light: #666666;
+
+  --white: #ffffff;
+
+  --background: #ffffff;
+
+  --light: #f7f9fa;
+
+  --border: #e8ecef;
+
+  --success: #16a34a;
+
+  --warning: #f59e0b;
+
+  --danger: #dc2626;
+
+  /*==============================
+    LAYOUT
+    ==============================*/
+
+  --container: 1320px;
+
+  --header-height: 90px;
+
+  --topbar-height: 48px;
+
+  /*==============================
+    BORDER RADIUS
+    ==============================*/
+
+  --radius-xs: 6px;
+
+  --radius-sm: 10px;
+
+  --radius-md: 16px;
+
+  --radius-lg: 24px;
+
+  --radius-xl: 50px;
+
+  --radius-round: 999px;
+
+  /*==============================
+    SHADOW
+    ==============================*/
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+  /*==============================
+    TRANSITION
+    ==============================*/
+
+  --transition: 0.35s ease;
+
+  /*==============================
+    Z-INDEX
+    ==============================*/
+
+  --z-header: 999;
+
+  --z-dropdown: 1000;
+
+  --z-modal: 9999;
+}
+/*==================================================
+SECTION 03
+GLOBAL
+==================================================*/
+
+/*==============================
+BODY
+==============================*/
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 400;
+
+  color: var(--text);
+
+  background: var(--background);
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+}
+
+/*==============================
+HEADINGS
+==============================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+
+  color: var(--secondary);
+
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 64px;
+
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+/*==============================
+PARAGRAPH
+==============================*/
+
+p {
+  color: var(--text-light);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+/*==============================
+LINK
+==============================*/
+
+a {
+  color: inherit;
+
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/*==============================
+IMAGE
+==============================*/
+
+img {
+  max-width: 100%;
+
+  display: block;
+
+  user-select: none;
+}
+
+/*==============================
+SELECTION
+==============================*/
+
+::selection {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+/*==============================
+SCROLLBAR
+==============================*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/*==============================
+SECTION SPACING
+==============================*/
+
+section {
+  position: relative;
+
+  padding: 100px 0;
+}
+/*==================================================
+SECTION 04
+CONTAINER
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+MAIN CONTAINER
+==============================*/
+
+.container {
+  width: min(1320px, 94%);
+
+  margin: 0 auto;
+}
+
+/*==============================
+LARGE CONTAINER
+(Dùng cho Hero hoặc Banner)
+==============================*/
+
+.container-lg {
+  width: min(1440px, 96%);
+
+  margin: 0 auto;
+}
+
+/*==============================
+SMALL CONTAINER
+(Dùng cho Blog hoặc Form)
+==============================*/
+
+.container-sm {
+  width: min(1140px, 92%);
+
+  margin: 0 auto;
+}
+
+/*==============================
+FLEX UTILITIES
+==============================*/
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/*==============================
+GRID UTILITIES
+==============================*/
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 40px;
+}
+
+.grid-3 {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+
+.grid-4 {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+/*==============================
+SECTION SPACING
+==============================*/
+
+.section {
+  padding: 100px 0;
+}
+
+.section-sm {
+  padding: 70px 0;
+}
+
+.section-lg {
+  padding: 140px 0;
+}
+/*==================================================
+SECTION 05
+TYPOGRAPHY
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+HEADINGS
+==============================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  color: var(--secondary);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(42px, 5vw, 64px);
+
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(34px, 4vw, 48px);
+}
+
+h3 {
+  font-size: clamp(28px, 3vw, 36px);
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+/*==============================
+PARAGRAPH
+==============================*/
+
+p {
+  margin: 0;
+
+  font-size: 16px;
+
+  color: var(--text-light);
+
+  line-height: 1.8;
+}
+
+/*==============================
+SMALL TEXT
+==============================*/
+
+small {
+  display: block;
+
+  font-size: 14px;
+
+  color: var(--text-light);
+}
+
+/*==============================
+LABEL
+==============================*/
+
+.label {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 8px 18px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+
+  border-radius: var(--radius-round);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+/*==============================
+SECTION TITLE
+==============================*/
+
+.section-title {
+  margin-bottom: 18px;
+
+  text-align: center;
+}
+
+.section-title h2 {
+  margin-bottom: 18px;
+}
+
+.section-title p {
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+/*==============================
+TEXT UTILITIES
+==============================*/
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+/*==============================
+FONT WEIGHT
+==============================*/
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+/*==================================================
+SECTION 06
+BUTTON
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+BUTTON GROUP
+==============================*/
+/*==================================================
+SECTION 50
+GLOBAL BUTTON
+
+Status : LOCKED
+Version : 2.0
+==================================================*/
+
+/*==============================
+BUTTON BASE
+==============================*/
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  height: 56px;
+
+  padding: 0 28px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+}
+
+/*==============================
+PRIMARY
+==============================*/
+
+.btn-primary {
+  background: var(--primary);
+
+  color: #fff;
+
+  box-shadow: 0 12px 30px rgba(29, 161, 161, 0.22);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+
+  background: #169696;
+
+  box-shadow: 0 20px 45px rgba(29, 161, 161, 0.3);
+}
+
+/*==============================
+OUTLINE
+==============================*/
+
+.btn-outline {
+  background: #fff;
+
+  color: var(--primary);
+
+  border: 2px solid rgba(29, 161, 161, 0.18);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+
+  color: #fff;
+
+  border-color: var(--primary);
+
+  transform: translateY(-4px);
+}
+
+/*==============================
+ICON
+==============================*/
+
+.btn i {
+  transition: 0.3s;
+}
+
+.btn:hover i {
+  transform: translateX(4px);
+}
+
+/*==============================
+ACTIVE
+==============================*/
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+/*==================================================
+TOPBAR
+==================================================*/
+
+.topbar {
+  height: var(--topbar-height);
+
+  background: var(--primary);
+
+  color: var(--white);
+
+  display: flex;
+
+  align-items: center;
+
+  font-size: 14px;
+}
+
+.topbar a {
+  color: var(--white);
+
+  text-decoration: none;
+}
+
+.topbar .container {
+  height: 100%;
+}
+/*==============================
+TOPBAR WRAPPER
+==============================*/
+
+.topbar-wrapper {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+/*==============================
+TOPBAR LEFT
+==============================*/
+
+.topbar-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-weight: 500;
+}
+
+.topbar-left i {
+  font-size: 15px;
+
+  color: var(--white);
+}
+
+/*==============================
+TOPBAR RIGHT
+==============================*/
+
+.topbar-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+/*==============================
+TOPBAR LINK
+==============================*/
+
+.topbar-right a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--white);
+
+  font-weight: 500;
+
+  transition: var(--transition);
+}
+
+.topbar-right a:hover {
+  opacity: 0.8;
+}
+
+.topbar-right i {
+  font-size: 14px;
+}
+
+/*==============================
+HOTLINE
+==============================*/
+
+.topbar-right a:last-child {
+  font-weight: 700;
+}
+/*==================================================
+SECTION 08
+HEADER
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+HEADER STRUCTURE
+==============================*/
+
+.header {
+  position: sticky;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: var(--header-height);
+
+  background: rgba(255, 255, 255, 0.98);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--border);
+
+  z-index: var(--z-header);
+
+  transition: var(--transition);
+}
+
+/*==============================
+HEADER WRAPPER
+==============================*/
+
+.header-wrapper {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  height: 100%;
+
+  gap: 42px;
+}
+
+/*==============================
+HEADER COMPONENTS
+==============================*/
+
+.header > * {
+  flex-shrink: 0;
+}
+
+.menu {
+  flex: 1;
+}
+
+.header-action {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+}
+/* ==================================================
+ẨN TOÀN DIỆN MENU DI ĐỘNG TRÊN DESKTOP LỚN
+================================================== */
+
+/* 1. Ẩn nút 3 gạch trên máy tính */
+.mobile-toggle {
+  display: none !important;
+}
+
+/* 2. Ẩn bảng menu và triệt tiêu hoàn toàn khoảng trống trên máy tính */
+.mobile-menu {
+  display: none !important;
+  position: fixed !important;
+  top: 0;
+  right: -360px !important;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  transition: 0.35s ease;
+}
+
+/* 3. Ẩn lớp phủ nền mờ trên máy tính */
+.mobile-overlay {
+  display: none !important;
+  position: fixed !important;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9998;
+}
+
+/*==============================
+HEADER EFFECTS
+==============================*/
+
+.header:hover {
+  box-shadow: var(--shadow-md);
+}
+/*==================================================
+SECTION 09
+LOGO
+
+Purpose :
+- Hiển thị nhận diện thương hiệu
+- Canh giữa theo chiều dọc
+- Dễ thay logo sau này
+- Đồng bộ với Header
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LOGO WRAPPER
+==============================*/
+
+.logo {
+  display: flex;
+
+  align-items: center;
+}
+
+/*==============================
+LOGO LINK
+==============================*/
+
+.logo a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+/*==============================
+LOGO IMAGE
+==============================*/
+
+.logo img {
+  width: 78px;
+
+  height: auto;
+
+  transition: var(--transition);
+}
+
+/*==============================
+LOGO CONTENT
+==============================*/
+
+.logo-text {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+/*==============================
+LOGO TITLE
+==============================*/
+
+.logo-text h2 {
+  margin: 0;
+
+  color: var(--primary);
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.5px;
+}
+
+/*==============================
+LOGO SUBTITLE
+==============================*/
+
+.logo-text p {
+  margin-top: 8px;
+
+  color: var(--text-light);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+/*==============================
+LOGO EFFECT
+==============================*/
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+/*==================================================
+SECTION 10
+MENU
+
+Purpose :
+- Điều hướng chính của website
+- Căn giữa tuyệt đối
+- Hiệu ứng Hover Premium
+- Chuẩn Responsive
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+MENU WRAPPER
+==============================*/
+
+.menu {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: flex-start;
+
+  margin-left: 12px;
+}
+
+/*==============================
+MENU LIST
+==============================*/
+
+.menu ul {
+  display: flex;
+
+  align-items: center;
+
+  gap: 34px;
+}
+
+/*==============================
+MENU ITEM
+==============================*/
+
+.menu li {
+  position: relative;
+}
+
+/*==============================
+MENU LINK
+==============================*/
+
+.menu a {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: var(--header-height);
+
+  color: var(--text);
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+}
+
+/*==============================
+MENU UNDERLINE
+==============================*/
+
+.menu a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 24px;
+
+  width: 0;
+
+  height: 2px;
+
+  background: var(--primary);
+
+  border-radius: 50px;
+
+  transform: translateX(-50%);
+
+  transition: var(--transition);
+}
+
+/*==============================
+MENU HOVER
+==============================*/
+
+.menu a:hover {
+  color: var(--primary);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/*==============================
+ACTIVE MENU
+==============================*/
+
+.menu li.active a {
+  color: var(--primary);
+}
+
+.menu li.active a::after {
+  width: 100%;
+}
+
+/*==============================
+MENU EFFECT
+==============================*/
+
+.menu a:hover {
+  transform: translateY(-2px);
+}
+
+.menu a:active {
+  transform: scale(0.98);
+}
+/*==================================================
+SECTION 11
+HEADER ACTION
+
+Purpose :
+- Search Button
+- Hotline
+- Booking Button
+- Hover Effect
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==================================================
+SECTION 12
+HERO LAYOUT
+
+Purpose :
+- Premium Hero Layout
+- Apple Style
+- 45% Content
+- 55% Image
+
+Status : LOCKED
+Version : 2.0
+==================================================*/
+
+/*==============================
+HERO
+==============================*/
+
+.hero {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: calc(100vh - var(--header-height) - var(--topbar-height));
+
+  padding: 70px 0;
+
+  background: linear-gradient(135deg, #f4fcfc 0%, #e8fafa 50%, #d8f5f4 100%);
+}
+
+/*==============================
+HERO CONTAINER
+==============================*/
+
+.hero .container {
+  width: min(var(--container), 94%);
+
+  margin: auto;
+}
+
+/*==============================
+HERO WRAPPER
+==============================*/
+
+.hero-wrapper {
+  display: grid;
+
+  grid-template-columns: 45% 55%;
+
+  align-items: center;
+
+  gap: 60px;
+}
+
+/*==============================
+HERO CONTENT
+==============================*/
+
+.hero-content {
+  flex: 0 0 46%;
+}
+
+.hero-image {
+  flex: 0 0 54%;
+}
+
+/*==============================
+HERO IMAGE
+==============================*/
+
+.hero-image {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+/*==============================
+BUTTON GROUP
+==============================*/
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 45px;
+
+  flex-wrap: wrap;
+}
+/*==================================================
+SECTION 13
+HERO CONTENT
+
+Purpose :
+- Premium Typography
+- Better Spacing
+- Apple Style
+- CTA Layout
+
+Status : LOCKED
+Version : 2.0
+==================================================*/
+
+/*==============================
+HERO CONTENT
+==============================*/
+
+.hero-content {
+  max-width: 560px;
+}
+
+/*==============================
+HERO LABEL
+==============================*/
+
+.hero-label {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #12a9ae;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.hero-label::before,
+.hero-label::after {
+  content: "";
+
+  width: 32px;
+
+  height: 2px;
+
+  background: #12a9ae;
+
+  border-radius: 10px;
+}
+/*==============================
+HERO TITLE
+==============================*/
+
+.hero-content h1 {
+  font-size: 46px;
+
+  line-height: 1.08;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  color: #0b8e94;
+
+  margin: 16px 0 22px;
+
+  max-width: 600px;
+}
+
+/*==============================
+HERO DESCRIPTION
+==============================*/
+
+.hero-content p {
+  max-width: 580px;
+
+  margin-bottom: 46px;
+
+  color: #5f6775;
+
+  font-size: 20px;
+
+  line-height: 1.9;
+}
+
+/*==============================
+HERO BUTTON GROUP
+==============================*/
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/*==============================
+BUTTON SIZE
+==============================*/
+
+.hero-buttons .btn {
+  min-width: 220px;
+
+  height: 58px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+/*==============================
+PRIMARY BUTTON
+==============================*/
+
+.hero-buttons .btn-primary {
+  box-shadow: 0 12px 28px rgba(21, 161, 157, 0.22);
+}
+
+/*==============================
+OUTLINE BUTTON
+==============================*/
+
+.hero-buttons .btn-outline {
+  background: #fff;
+}
+
+/*==============================
+BUTTON HOVER
+==============================*/
+
+.hero-buttons .btn:hover {
+  transform: translateY(-4px);
+}
+/*==================================================
+SECTION 14
+HERO IMAGE
+
+Purpose :
+- Premium Hero Image
+- Better Shadow
+- Better Hover
+- Better Balance
+
+Status : LOCKED
+Version : 2.0
+==================================================*/
+
+/*==============================
+HERO IMAGE
+==============================*/
+
+.hero-image {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+/*==============================
+IMAGE
+==============================*/
+
+.hero-image img {
+  width: 100%;
+
+  max-width: 760px;
+
+  display: block;
+
+  border-radius: 32px;
+
+  object-fit: cover;
+
+  box-shadow:
+    0 30px 60px rgba(15, 23, 42, 0.1),
+    0 60px 120px rgba(15, 23, 42, 0.08);
+
+  transition: all 0.45s ease;
+}
+
+/*==============================
+IMAGE HOVER
+==============================*/
+
+.hero-image:hover img {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/*==============================
+BACKGROUND GLOW
+==============================*/
+
+.hero-image::before {
+  content: "";
+
+  position: absolute;
+
+  width: 620px;
+
+  height: 620px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(27, 170, 165, 0.18) 0%,
+    rgba(27, 170, 165, 0.08) 45%,
+    transparent 75%
+  );
+
+  filter: blur(25px);
+
+  z-index: -2;
+}
+
+/*==============================
+BOTTOM SHADOW
+==============================*/
+
+.hero-image::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -22px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 72%;
+
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.15);
+
+  filter: blur(24px);
+
+  z-index: -3;
+}
+/*==================================================
+SECTION 15
+HERO EFFECT
+
+Purpose :
+- Premium Hero Effect
+- Floating Shape
+- Glass Effect
+- Image Animation
+- Background Decoration
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+HERO DECORATION
+==============================*/
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  top: -120px;
+
+  left: -120px;
+
+  width: 320px;
+
+  height: 320px;
+
+  border-radius: 50%;
+
+  background: rgba(20, 155, 151, 0.08);
+
+  filter: blur(30px);
+
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -120px;
+
+  bottom: -120px;
+
+  width: 360px;
+
+  height: 360px;
+
+  border-radius: 50%;
+
+  background: rgba(20, 155, 151, 0.1);
+
+  filter: blur(40px);
+
+  z-index: 0;
+}
+
+/*==============================
+FLOATING IMAGE
+==============================*/
+
+.hero-image {
+  animation: heroFloat 5s ease-in-out infinite;
+}
+
+/*==============================
+BUTTON HOVER
+==============================*/
+
+.hero-buttons .btn {
+  transition: all 0.35s ease;
+}
+
+.hero-buttons .btn:hover {
+  transform: translateY(-4px);
+}
+
+/*==============================
+TITLE ANIMATION
+==============================*/
+
+/*==============================
+KEYFRAMES
+==============================*/
+
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+/*==================================================
+SECTION 16
+HERO STATS
+Version : 1.0
+==================================================*/
+
+/*==============================
+HERO STATS WRAPPER
+==============================*/
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+
+  margin-top: 48px;
+}
+
+/*==============================
+STAT ITEM
+==============================*/
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/*==============================
+NUMBER
+==============================*/
+
+.stat-item h3 {
+  margin: 0;
+
+  color: var(--primary);
+
+  font-size: 54px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+/*==============================
+TEXT
+==============================*/
+
+.stat-item span {
+  margin-top: 10px;
+
+  font-size: 14px;
+
+  color: var(--text-light);
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+/*==================================================
+SECTION 17
+SERVICES LAYOUT
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+SERVICES SECTION
+==============================*/
+
+.services {
+  padding: 70px 0 60px;
+  background: #fff;
+}
+
+/*==============================
+SECTION HEADING
+==============================*/
+
+.section-heading {
+  max-width: 900px;
+
+  margin: 0 auto 90px;
+
+  text-align: center;
+}
+
+/*==============================
+SECTION LABEL
+==============================*/
+
+.section-label {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  margin-bottom: 40px;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  color: #0b8e94;
+
+  text-transform: uppercase;
+}
+.section-label::before,
+.section-label::after {
+  content: "";
+
+  width: 90px;
+
+  height: 2px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(to right, transparent, #0b8e94);
+}
+.section-label::after {
+  background: linear-gradient(to left, transparent, #0b8e94);
+}
+
+/*==============================
+SECTION TITLE
+==============================*/
+
+.section-heading h2 {
+  font-size: 58px;
+
+  line-height: 1.08;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  color: #111827;
+
+  margin-bottom: 28px;
+}
+
+/*==============================
+SECTION DESCRIPTION
+==============================*/
+
+.section-heading p {
+  max-width: 700px;
+
+  margin: auto;
+
+  font-size: 20px;
+
+  line-height: 1.8;
+
+  color: #64748b;
+}
+
+/*==============================
+SERVICES GRID
+==============================*/
+
+.services-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 30px;
+}
+/*==================================================
+SECTION 18
+SERVICE CARD
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+SERVICE CARD
+==============================*/
+
+.service-card {
+  position: relative;
+
+  padding: 42px 32px;
+  text-align: center;
+
+  background: var(--white);
+
+  border: 1px solid rgba(0, 0, 0, 0.05);
+
+  border-radius: 28px;
+
+  transition: var(--transition);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  overflow: hidden;
+}
+
+/*==============================
+TOP BORDER EFFECT
+==============================*/
+
+.service-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 4px;
+
+  background: var(--primary);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: 0.35s;
+}
+
+/*==============================
+CARD HOVER
+==============================*/
+
+.service-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/*==============================
+SERVICE ICON
+==============================*/
+
+.service-icon {
+  width: 78px;
+
+  height: 78px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 22px;
+
+  background: rgba(29, 161, 161, 0.1);
+
+  color: var(--primary);
+
+  font-size: 32px;
+
+  margin: 0 auto 30px;
+  transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+  background: var(--primary);
+
+  color: #fff;
+
+  transform: scale(1.08);
+}
+/*==============================
+CARD TITLE
+==============================*/
+
+.service-card h3 {
+  margin-bottom: 16px;
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: var(--secondary);
+}
+
+/*==============================
+CARD DESCRIPTION
+==============================*/
+
+.service-card p {
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: var(--text-light);
+}
+/*==================================================
+SECTION 19
+SERVICES RESPONSIVE
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .services {
+    padding: 60px 0 40px;
+  }
+
+  .section-heading {
+    margin-bottom: 50px;
+  }
+
+  .section-heading h2 {
+    font-size: 38px;
+  }
+
+  .service-card {
+    padding: 36px 28px;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .service-card {
+    padding: 20px 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .service-icon {
+    width: 54px !important;
+    height: 54px !important;
+    font-size: 20px !important;
+    border-radius: 14px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .service-card h3 {
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .service-card p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  /*==============================
+SMALL MOBILE
+==============================*/
+
+  @media (max-width: 480px) {
+    .services {
+      padding: 60px 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      padding: 0 18px;
+    }
+
+    .section-heading h2 {
+      font-size: 28px;
+    }
+
+    .service-card {
+      padding: 26px 20px;
+    }
+  }
+  /*==================================================
+SECTION 20
+MOBILE HEADER
+
+Purpose :
+- Mobile Navigation
+- Hide Desktop Header
+- Prepare Hamburger Menu
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+  /*=========================================
+TABLET & MOBILE
+768px ↓
+=========================================*/
+
+  @media (max-width: 768px) {
+    /* ---------- Topbar ---------- */
+
+    .topbar {
+      display: none;
+    }
+
+    /* ---------- Header ---------- */
+
+    .header {
+      .header {
+        height: 68px;
+      }
+
+      .header-wrapper {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 0;
+      }
+
+      /* ---------- Logo ---------- */
+
+      .logo img {
+        width: 44px;
+      }
+
+      .logo-text h2 {
+        font-size: 15px;
+        white-space: nowrap;
+      }
+    }
+
+    .logo-text p {
+      display: none;
+    }
+
+    /* ---------- Hide Desktop Menu ---------- */
+
+    .menu {
+      display: none;
+    }
+
+    /* ---------- Hide Desktop Action ---------- */
+
+    .header-action {
+      display: none;
+    }
+
+    /* ---------- Mobile Toggle ---------- */
+
+    .mobile-toggle {
+      width: 46px;
+
+      height: 46px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border: none;
+
+      background: none;
+
+      cursor: pointer;
+    }
+
+    .mobile-toggle i {
+      font-size: 24px;
+
+      color: var(--secondary);
+    }
+  }
+  /*==================================================
+SECTION 21
+MOBILE MENU
+
+Purpose :
+- Off Canvas Menu
+- Mobile Navigation
+- Overlay
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+  @media (max-width: 768px) {
+    /*==============================
+    MENU PANEL
+    ==============================*/
+
+    .mobile-menu {
+      position: fixed;
+
+      top: 0;
+
+      right: -320px;
+
+      width: 300px;
+
+      height: 100vh;
+
+      background: #fff;
+
+      z-index: 9999;
+
+      box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+
+      transition: 0.35s ease;
+    }
+
+    /*==============================
+    MENU HEADER
+    ==============================*/
+
+    .mobile-menu-header {
+      height: 72px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 0 24px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu-header span {
+      font-size: 18px;
+
+      font-weight: 700;
+
+      color: var(--secondary);
+    }
+
+    /*==============================
+    CLOSE BUTTON
+    ==============================*/
+
+    .mobile-close {
+      width: 42px;
+
+      height: 42px;
+
+      border: none;
+
+      background: none;
+
+      cursor: pointer;
+    }
+
+    .mobile-close i {
+      font-size: 22px;
+
+      color: var(--secondary);
+    }
+
+    /*==============================
+    MOBILE NAV
+    ==============================*/
+
+    .mobile-nav {
+      display: flex;
+
+      flex-direction: column;
+
+      padding: 24px;
+    }
+
+    .mobile-nav a {
+      padding: 16px 0;
+
+      border-bottom: 1px solid #f2f2f2;
+
+      font-size: 17px;
+
+      font-weight: 600;
+
+      color: var(--secondary);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+    }
+
+    /*==============================
+    OVERLAY
+    ==============================*/
+
+    .mobile-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.35);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition: 0.35s;
+
+      z-index: 9998;
+    }
+  }
+}
+/*==================================================
+SECTION 20
+BRANDS LAYOUT
+==================================================*/
+
+/*==============================
+BRANDS
+==============================*/
+
+.brands {
+  padding: 60px 0 60px;
+
+  background:
+    radial-gradient(circle at top, #dff8f7 0%, transparent 55%),
+    linear-gradient(to bottom, #ffffff, #f5fcfc, #edf9f8);
+}
+/*==============================
+BRANDS GRID
+==============================*/
+
+.brands-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 40px;
+
+  margin-top: 55px;
+}
+/*==================================================
+SECTION 21
+BRAND CARD
+==================================================*/
+
+/*==============================
+BRAND ITEM (CẬP NHẬT TRÀN VIỀN)
+==============================*/
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+
+  /* Xóa bỏ padding 32px cũ để cho phép ảnh bung ra sát mép ô */
+  padding: 0 !important;
+
+  background: #fff;
+  border: 1px solid #edf2f7;
+  border-radius: 24px;
+  transition: all 0.35s ease;
+
+  /* Cực kỳ quan trọng: Giúp ảnh phóng to khi hover không bị tràn đè ra ngoài bo góc */
+  overflow: hidden !important;
+}
+
+/*==============================
+BRAND IMAGE
+==============================*/
+
+.brand-item img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  /* Thay đổi thành cover để bức ảnh tự động cắt cúp và lấp đầy 100% diện tích ô chứa */
+  object-fit: cover !important;
+
+  filter: grayscale(100%);
+  opacity: 0.65;
+  transition: all 0.35s ease;
+}
+
+/*==============================
+BRAND HOVER
+==============================*/
+
+.brand-item:hover {
+  transform: translateY(-6px);
+  border-color: #0b8e94;
+  box-shadow: 0 20px 45px rgba(11, 142, 148, 0.12);
+}
+
+.brand-item:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.08) !important; /* Hiệu ứng zoom nhẹ toàn cảnh cực chất */
+}
+/*==================================================
+SECTION 22
+BRANDS RESPONSIVE
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  /* 1. Gom 2 cột song song đều đặn */
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* 2. Xóa bỏ padding để ảnh bung lấp đầy viền ô */
+  .brand-item {
+    height: 95px !important; /* Hạ chiều cao xuống một chút cho vừa vặn màn hình dọc */
+    padding: 0 !important; /* Xóa padding để ảnh chạm mép viền */
+    border-radius: 16px !important;
+    overflow: hidden !important; /* Không cho ảnh tràn qua góc bo */
+  }
+
+  /* 3. Ép ảnh hiển thị full 100% không gian ô chứa trên mobile */
+  .brand-item img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important; /* Cắt cúp full tràn lề */
+  }
+}
+/*==================================================
+SECTION 23
+PRODUCTS LAYOUT
+==================================================*/
+
+.products {
+  padding: 90px 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+/*==================================================
+SECTION HEADING
+==================================================*/
+
+.products .section-heading {
+  max-width: 760px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.products .section-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 22px;
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.products .section-label::before,
+.products .section-label::after {
+  content: "";
+
+  width: 90px;
+
+  height: 2px;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--primary),
+    transparent
+  );
+}
+
+.products .section-heading h2 {
+  font-size: 64px;
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  color: var(--secondary);
+
+  margin-bottom: 24px;
+}
+
+.products .section-heading p {
+  max-width: 760px;
+
+  margin: auto;
+
+  font-size: 21px;
+
+  line-height: 1.8;
+
+  color: #667085;
+}
+
+/*==================================================
+PRODUCT TABS
+==================================================*/
+
+.product-tabs {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  margin: 45px 0 50px;
+}
+
+.product-tabs button {
+  min-width: 145px;
+
+  height: 50px;
+
+  padding: 0 26px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #fff;
+
+  color: var(--secondary);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+}
+
+.product-tabs button:hover {
+  background: var(--primary);
+
+  color: #fff;
+
+  transform: translateY(-3px);
+}
+
+.product-tabs button.active {
+  background: var(--primary);
+
+  color: #fff;
+}
+
+/*==================================================
+PRODUCT GRID
+==================================================*/
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+/*==================================================
+SECTION 24
+PRODUCT CARD
+==================================================*/
+
+.product-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #fff;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+
+  transition: 0.35s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
+}
+
+/*==================================================
+PRODUCT IMAGE
+==================================================*/
+
+.product-image {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 280px;
+
+  background: #f7fbfc;
+
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 78%;
+
+  height: auto;
+
+  object-fit: contain;
+
+  transition: 0.45s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+/*==================================================
+PRODUCT BADGE
+==================================================*/
+
+.product-badge {
+  position: absolute;
+
+  top: 20px;
+
+  left: 20px;
+
+  z-index: 5;
+
+  padding: 8px 16px;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 10px 25px rgba(29, 161, 161, 0.25);
+}
+
+/*==================================================
+WISHLIST
+==================================================*/
+
+.product-wishlist {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  z-index: 20;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  transition: 0.35s;
+}
+
+.product-wishlist i {
+  font-size: 18px;
+  color: #64748b;
+  transition: 0.35s;
+}
+
+.product-wishlist:hover {
+  background: var(--primary);
+  transform: scale(1.08);
+}
+
+.product-wishlist:hover i {
+  color: #fff;
+}
+/*==================================================
+PRODUCT CONTENT
+==================================================*/
+
+.product-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-content h3 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+/*==================================================
+RATING
+==================================================*/
+
+.product-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  font-size: 15px;
+
+  color: #f6b500;
+}
+
+.product-rating span {
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+/*==================================================
+PRICE
+==================================================*/
+
+.product-price {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.old-price {
+  color: #94a3b8;
+
+  text-decoration: line-through;
+
+  font-size: 16px;
+}
+
+.new-price {
+  font-size: 30px;
+
+  font-weight: 800;
+
+  color: var(--primary);
+}
+
+/*==================================================
+SAVE
+==================================================*/
+
+.product-save {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: max-content;
+
+  padding: 8px 16px;
+
+  margin-bottom: 24px;
+
+  border-radius: 999px;
+
+  background: #e8fbf8;
+
+  color: var(--primary);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+/*==================================================
+BUTTON
+==================================================*/
+
+.product-card .btn {
+  width: 100%;
+
+  height: 52px;
+
+  border-radius: 16px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: auto;
+
+  transition: 0.35s;
+}
+
+.product-card .btn:hover {
+  transform: translateY(-3px);
+}
+
+/*==================================================
+CARD HOVER
+==================================================*/
+
+.product-card:hover .new-price {
+  color: #087f84;
+}
+
+.product-card:hover .product-badge {
+  transform: translateY(-2px);
+}
+/*==================================================
+PRODUCT RESPONSIVE
+==================================================*/
+
+@media (max-width: 992px) {
+  .products .section-heading h2 {
+    font-size: 48px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /*==============================
+PRODUCT MOBILE
+==============================*/
+
+  .products {
+    padding: 60px 0;
+  }
+
+  .products .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .products .section-heading h2 {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .products .section-heading p {
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 0 10px;
+  }
+
+  /* --- ĐOẠN TINH CHỈNH ĐỂ THANH TAB ĐẸP HOÀN HẢO TRÊN MOBILE --- */
+  .product-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Ép buộc không xuống hàng */
+
+    /* THAY ĐỔI LỚN: Căn đều các nút ra giữa màn hình thay vì lệch trái */
+    justify-content: center !important;
+
+    gap: 10px !important; /* Tăng nhẹ khoảng cách giữa các nút cho thoáng */
+    margin: 24px 0 !important;
+    padding: 6px 14px !important;
+
+    overflow-x: auto !important; /* Tự động bật cuộn nếu màn hình quá bé */
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Ẩn thanh cuộn để giao diện sạch sẽ */
+  .product-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .product-tabs button {
+    flex: 1 0 auto !important; /* Cho phép các nút tự giãn đều để lấp đầy khoảng trống */
+    min-width: max-content !important; /* Nút tự động ôm khít theo độ dài chữ */
+    height: 44px !important;
+    padding: 0 16px !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+  /* Grid */
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  /* Card */
+
+  .product-card {
+    width: 100%;
+    border-radius: 22px;
+  }
+
+  /* Image */
+
+  .product-image {
+    height: 160px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 18px;
+  }
+
+  .product-image img {
+    width: 72%;
+
+    max-height: 120px;
+
+    object-fit: contain;
+  }
+
+  /* Badge */
+
+  .product-badge {
+    top: 14px;
+    left: 14px;
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+
+  /* Heart */
+
+  .product-wishlist {
+    width: 40px;
+    height: 40px;
+    top: 14px;
+    right: 14px;
+  }
+
+  /* Content */
+
+  .product-content {
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .product-content h3 {
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    min-height: 46px;
+
+    margin-bottom: 10px;
+  }
+
+  /* Rating */
+
+  .product-rating {
+    margin-bottom: 12px;
+  }
+
+  /* Price */
+  .product-price {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .old-price {
+    font-size: 15px;
+  }
+
+  .new-price {
+    font-size: 20px;
+  }
+
+  /* Save */
+
+  .product-save {
+    margin: 18px 0;
+
+    width: auto;
+
+    padding: 10px 18px;
+  }
+
+  /* Button */
+
+  .product-card .btn {
+    width: 100%;
+
+    height: 48px;
+
+    margin-top: auto;
+
+    border-radius: 14px;
+  }
+} /* <-- THÊM DẤU NÀY */
+
+@media (max-width: 480px) {
+  .products-grid {
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .product-image {
+    height: 145px;
+  }
+
+  .product-image img {
+    width: 80%;
+  }
+
+  .product-content {
+    padding: 12px;
+  }
+
+  .product-content h3 {
+    font-size: 15px;
+    line-height: 1.35;
+    min-height: 42px;
+  }
+
+  .product-rating {
+    font-size: 12px;
+  }
+
+  .old-price {
+    font-size: 13px;
+  }
+
+  .new-price {
+    font-size: 17px;
+  }
+
+  .product-save {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .product-card .btn {
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .product-wishlist {
+    width: 38px;
+    height: 38px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .product-badge {
+    top: 12px;
+    left: 12px;
+  }
+}
+
+/*==================================================
+SECTION 29
+WHY LAYOUT
+==================================================*/
+
+.why {
+  padding: 120px 0;
+  background: #fff;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 70px;
+}
+/*==================================================
+SECTION 30
+WHY CARD
+==================================================*/
+
+.why-card {
+  background: #fff;
+
+  border-radius: 28px;
+
+  padding: 40px 32px;
+
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+
+  transition: 0.35s;
+
+  text-align: left;
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+}
+
+.why-icon {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+
+  background: rgba(29, 161, 161, 0.1);
+
+  color: var(--primary);
+
+  font-size: 30px;
+}
+
+.why-card h3 {
+  font-size: 28px;
+
+  margin-bottom: 16px;
+
+  color: var(--secondary);
+}
+
+.why-card p {
+  color: var(--text-light);
+
+  line-height: 1.8;
+}
+/*==================================================
+SECTION 31
+WHY PREMIUM EFFECT
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+CARD EFFECT
+==============================*/
+
+.why-card {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+/*==============================
+TOP BORDER
+==============================*/
+
+.why-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 0;
+
+  height: 4px;
+
+  background: var(--primary);
+
+  transition: 0.45s ease;
+}
+
+.why-card:hover::before {
+  width: 100%;
+}
+
+/*==============================
+ICON EFFECT
+==============================*/
+
+.why-icon {
+  transition: 0.35s;
+}
+
+.why-icon i {
+  transition: 0.35s;
+}
+
+.why-card:hover .why-icon {
+  background: var(--primary);
+  color: #fff;
+}
+
+.why-card:hover .why-icon i {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/*==============================
+TITLE
+==============================*/
+
+.why-card h3 {
+  transition: 0.35s;
+}
+
+.why-card:hover h3 {
+  color: var(--primary);
+}
+
+/*==============================
+TEXT
+==============================*/
+
+.why-card p {
+  transition: 0.35s;
+}
+
+.why-card:hover p {
+  color: #4b5563;
+}
+
+/*==============================
+SHINE EFFECT
+==============================*/
+
+.why-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -120%;
+
+  width: 60%;
+
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+
+  transition: 0.8s;
+}
+
+.why-card:hover::after {
+  left: 150%;
+}
+/*==================================================
+SECTION 32
+WHY RESPONSIVE
+==================================================*/
+
+@media (max-width: 1200px) {
+  .why {
+    padding: 100px 0;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why {
+    padding: 70px 0;
+  }
+
+  .why .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .why .section-label {
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    gap: 12px;
+  }
+
+  .why .section-label::before,
+  .why .section-label::after {
+    width: 45px;
+  }
+
+  .why .section-heading h2 {
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+  }
+
+  .why .section-heading p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    max-width: 100%;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-top: 40px;
+  }
+
+  .why-card {
+    padding: 28px;
+
+    border-radius: 22px;
+  }
+
+  .why-icon {
+    width: 62px;
+
+    height: 62px;
+
+    font-size: 26px;
+
+    margin-bottom: 20px;
+  }
+
+  .why-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 12px;
+  }
+
+  .why-card p {
+    font-size: 16px;
+
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .why {
+    padding: 60px 0;
+  }
+
+  .why .section-heading h2 {
+    font-size: 32px;
+  }
+
+  .why .section-heading p {
+    font-size: 16px;
+  }
+
+  .why-card {
+    padding: 24px;
+  }
+}
+/*==================================================
+SECTION 34
+TESTIMONIALS LAYOUT
+==================================================*/
+
+/*==============================
+TESTIMONIALS
+==============================*/
+
+.testimonials {
+  padding: 120px 0;
+
+  background: #f8fcfc;
+}
+/*==============================
+GRID
+==============================*/
+
+.testimonial-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+}
+/*==============================
+CARD
+==============================*/
+
+.testimonial-card {
+  background: #fff;
+
+  border-radius: 28px;
+
+  padding: 40px;
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+
+  transition: var(--transition);
+}
+/*==============================
+HOVER
+==============================*/
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+}
+/*==============================
+STARS
+==============================*/
+
+.testimonial-stars {
+  color: #ffb400;
+
+  font-size: 22px;
+
+  margin-bottom: 22px;
+}
+/*==============================
+TEXT
+==============================*/
+
+.testimonial-text {
+  color: var(--text-light);
+
+  line-height: 1.9;
+
+  font-size: 17px;
+
+  margin-bottom: 34px;
+}
+/*==============================
+USER
+==============================*/
+
+.testimonial-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+}
+/*==============================
+AVATAR
+==============================*/
+
+.testimonial-user img {
+  width: 64px;
+
+  height: 64px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+/*==============================
+NAME
+==============================*/
+
+.testimonial-user h4 {
+  margin-bottom: 6px;
+
+  font-size: 20px;
+
+  color: var(--secondary);
+}
+/*==============================
+POSITION
+==============================*/
+
+.testimonial-user span {
+  color: var(--text-light);
+
+  font-size: 15px;
+}
+/*==================================================
+SECTION 35
+TESTIMONIAL ANIMATION
+==================================================*/
+
+.testimonial-card {
+  position: relative;
+
+  overflow: hidden;
+}
+.testimonial-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 5px;
+
+  background: var(--primary);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: 0.4s;
+}
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+.testimonial-user img {
+  transition: 0.35s;
+}
+.testimonial-card:hover .testimonial-user img {
+  transform: scale(1.08);
+
+  box-shadow: 0 12px 28px rgba(29, 161, 161, 0.25);
+}
+.testimonial-stars {
+  transition: 0.35s;
+}
+.testimonial-card:hover .testimonial-stars {
+  letter-spacing: 2px;
+}
+.testimonial-user h4 {
+  transition: 0.3s;
+}
+.testimonial-card:hover h4 {
+  color: var(--primary);
+}
+/*==================================================
+SECTION 36
+TESTIMONIALS RESPONSIVE
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .testimonials {
+    padding: 100px 0;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  .testimonial-card {
+    padding: 30px 24px;
+  }
+
+  .testimonial-stars {
+    font-size: 20px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+
+    margin-bottom: 28px;
+  }
+
+  .testimonial-user img {
+    width: 56px;
+
+    height: 56px;
+  }
+
+  .testimonial-user h4 {
+    font-size: 18px;
+  }
+
+  .testimonial-user span {
+    font-size: 14px;
+  }
+}
+/*==================================================
+SECTION 38
+BLOG LAYOUT
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+BLOG SECTION
+==============================*/
+
+.blog {
+  padding: 120px 0;
+
+  background: #ffffff;
+}
+
+/*==============================
+BLOG GRID
+==============================*/
+
+.blog-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 32px;
+
+  margin-top: 70px;
+}
+/*==================================================
+SECTION 39
+BLOG CARD
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+BLOG CARD
+==============================*/
+
+.blog-card {
+  background: #fff;
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+
+  transition: var(--transition);
+}
+
+/*==============================
+BLOG IMAGE
+==============================*/
+
+.blog-image {
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+
+  height: 260px;
+
+  object-fit: cover;
+
+  transition: 0.45s ease;
+}
+
+/*==============================
+BLOG CONTENT
+==============================*/
+
+.blog-content {
+  padding: 30px;
+}
+
+/*==============================
+BLOG DATE
+==============================*/
+
+.blog-date {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: var(--primary);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+/*==============================
+BLOG TITLE
+==============================*/
+
+.blog-content h3 {
+  margin-bottom: 18px;
+
+  color: var(--secondary);
+
+  font-size: 24px;
+
+  line-height: 1.45;
+
+  transition: 0.3s;
+}
+
+/*==============================
+BLOG DESCRIPTION
+==============================*/
+
+.blog-content p {
+  margin-bottom: 24px;
+
+  color: var(--text-light);
+
+  line-height: 1.8;
+}
+
+/*==============================
+READ MORE
+==============================*/
+
+.blog-content a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: var(--primary);
+
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+/*==============================
+CARD HOVER
+==============================*/
+
+.blog-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.08);
+}
+
+.blog-card:hover h3 {
+  color: var(--primary);
+}
+
+.blog-card:hover .blog-content a {
+  gap: 14px;
+}
+/*==================================================
+SECTION 40
+BLOG RESPONSIVE
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 28px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .blog {
+    padding: 100px 0;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  .blog-card {
+    border-radius: 22px;
+  }
+
+  .blog-image img {
+    height: 220px;
+  }
+
+  .blog-content {
+    padding: 24px;
+  }
+
+  .blog-content h3 {
+    font-size: 22px;
+  }
+
+  .blog-content p {
+    font-size: 15px;
+  }
+}
+/*==================================================
+SECTION 42
+CTA LAYOUT
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+CTA SECTION
+==============================*/
+
+.cta {
+  padding: 120px 0;
+
+  background: #f8fcfc;
+}
+
+/*==============================
+CTA BOX
+==============================*/
+
+.cta-box {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 80px;
+
+  text-align: center;
+
+  border-radius: 36px;
+
+  background: linear-gradient(135deg, #16a5a5 0%, #1bb2ad 50%, #30c7bf 100%);
+
+  color: #fff;
+
+  box-shadow: 0 30px 80px rgba(22, 165, 165, 0.22);
+}
+
+/*==============================
+BACKGROUND EFFECT
+==============================*/
+
+.cta-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+
+  height: 420px;
+
+  top: -180px;
+
+  right: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cta-box::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+
+  height: 260px;
+
+  bottom: -120px;
+
+  left: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+/*==============================
+TITLE
+==============================*/
+
+.cta-box h2 {
+  margin: 24px 0;
+
+  color: #fff;
+
+  font-size: 54px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+}
+
+/*==============================
+DESCRIPTION
+==============================*/
+
+.cta-box p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 18px;
+
+  line-height: 1.9;
+}
+/*==============================
+FEATURES
+==============================*/
+
+.cta-features {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 32px;
+
+  margin-top: 50px;
+}
+
+.cta-features span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #fff;
+
+  font-weight: 600;
+}
+
+.cta-features i {
+  color: #fff;
+}
+/*==================================================
+SECTION 43
+CTA BUTTON
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+BUTTON GROUP
+==============================*/
+
+.cta-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 50px;
+
+  flex-wrap: wrap;
+}
+
+/*==============================
+BUTTON
+==============================*/
+
+.cta-buttons .btn {
+  min-width: 220px;
+
+  height: 60px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  border-radius: 50px;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  transition: all 0.35s ease;
+}
+
+/*==============================
+PRIMARY BUTTON
+==============================*/
+
+.cta-buttons .btn-primary {
+  background: #fff;
+
+  color: var(--primary);
+
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.18);
+}
+
+.cta-buttons .btn-primary:hover {
+  background: #f8f8f8;
+
+  transform: translateY(-4px);
+
+  box-shadow: 0 20px 45px rgba(255, 255, 255, 0.28);
+}
+
+/*==============================
+OUTLINE BUTTON
+==============================*/
+
+.cta-buttons .btn-outline {
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  background: transparent;
+
+  color: #fff;
+}
+
+.cta-buttons .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color: #fff;
+
+  transform: translateY(-4px);
+}
+
+/*==============================
+ICON
+==============================*/
+
+.cta-buttons i {
+  transition: 0.35s;
+}
+
+.cta-buttons .btn:hover i {
+  transform: translateX(4px);
+}
+/*==================================================
+SECTION 44
+CTA RESPONSIVE
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .cta-box {
+    padding: 70px 60px;
+  }
+
+  .cta-box h2 {
+    font-size: 46px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .cta {
+    padding: 100px 0;
+  }
+
+  .cta-box {
+    padding: 60px 40px;
+  }
+
+  .cta-box h2 {
+    font-size: 40px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+
+    max-width: 360px;
+  }
+
+  .cta-features {
+    gap: 20px;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  .cta-box {
+    padding: 45px 24px;
+
+    border-radius: 24px;
+  }
+
+  .cta-box h2 {
+    font-size: 30px;
+
+    line-height: 1.3;
+  }
+
+  .cta-box p {
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+
+  .cta-buttons {
+    margin-top: 36px;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+
+    min-width: auto;
+
+    height: 54px;
+
+    font-size: 16px;
+  }
+
+  .cta-features {
+    flex-direction: column;
+
+    gap: 16px;
+
+    margin-top: 36px;
+  }
+}
+.cta-box .section-label {
+  background: rgba(255, 255, 255, 0.18);
+
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(10px);
+}
+/*==================================================
+SECTION 46
+FOOTER
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+FOOTER
+==============================*/
+
+.footer {
+  background: #0f172a;
+
+  color: #fff;
+
+  padding: 90px 0 30px;
+}
+
+/*==============================
+GRID
+==============================*/
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+
+  gap: 60px;
+
+  margin-bottom: 60px;
+}
+
+/*==============================
+LOGO
+==============================*/
+
+.footer-about img {
+  width: 220px;
+
+  margin-bottom: 24px;
+}
+
+/*==============================
+DESCRIPTION
+==============================*/
+
+.footer-about p {
+  color: rgba(255, 255, 255, 0.75);
+
+  line-height: 1.9;
+
+  margin-bottom: 30px;
+}
+
+/*==============================
+TITLE
+==============================*/
+
+.footer h4 {
+  font-size: 22px;
+
+  margin-bottom: 24px;
+
+  color: #fff;
+}
+
+/*==============================
+LIST
+==============================*/
+
+.footer ul {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+}
+
+.footer ul li {
+  margin-bottom: 16px;
+
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/*==============================
+LINK
+==============================*/
+
+.footer a {
+  color: rgba(255, 255, 255, 0.75);
+
+  transition: 0.35s;
+}
+
+.footer a:hover {
+  color: var(--primary);
+
+  padding-left: 6px;
+}
+
+/*==============================
+SOCIAL
+==============================*/
+
+.footer-social {
+  display: flex;
+
+  gap: 14px;
+}
+
+.footer-social a {
+  width: 46px;
+
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #fff;
+
+  font-size: 18px;
+
+  transition: 0.35s;
+}
+
+.footer-social a:hover {
+  background: var(--primary);
+
+  color: #fff;
+
+  transform: translateY(-6px);
+}
+
+/*==============================
+BOTTOM
+==============================*/
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  padding-top: 28px;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 15px;
+}
+/*==================================================
+SECTION 47
+FOOTER RESPONSIVE
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 50px;
+  }
+}
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  .footer {
+    padding: 80px 0 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  .footer-about {
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+  .footer-about img {
+    margin: 0 auto 24px;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 60px 0 25px;
+  }
+
+  .footer-grid {
+    gap: 36px;
+  }
+
+  .footer h4 {
+    font-size: 20px;
+
+    margin-bottom: 18px;
+  }
+
+  .footer-about img {
+    width: 180px;
+  }
+
+  .footer-about p {
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+  .footer ul li {
+    margin-bottom: 12px;
+
+    font-size: 15px;
+  }
+
+  .footer-social {
+    gap: 12px;
+  }
+
+  .footer-social a {
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 16px;
+  }
+
+  .footer-bottom {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+}
+/*==================================================
+SECTION 48
+GLOBAL SPACING
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+SECTION
+==============================*/
+
+section {
+  position: relative;
+
+  overflow: hidden;
+}
+
+/*==============================
+SECTION GAP
+==============================*/
+
+.hero,
+.services,
+.brands,
+.products,
+.why,
+.testimonials,
+.blog,
+.cta {
+  padding: 120px 0;
+}
+
+/*==============================
+HEADING
+==============================*/
+
+.section-heading {
+  margin: 0 auto 70px;
+}
+
+/*==============================
+TITLE
+==============================*/
+
+.section-heading h2 {
+  margin-bottom: 22px;
+}
+
+/*==============================
+PARAGRAPH
+==============================*/
+
+.section-heading p {
+  max-width: 720px;
+
+  margin: auto;
+}
+
+/*==============================
+GRID GAP
+==============================*/
+
+.services-grid,
+.brands-grid,
+.products-grid,
+.why-grid,
+.testimonial-grid,
+.blog-grid {
+  gap: 32px;
+}
+/*==================================================
+SECTION 49
+GLOBAL TYPOGRAPHY
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+BODY
+==============================*/
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: var(--text);
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+}
+
+/*==============================
+HEADINGS
+==============================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  color: var(--secondary);
+
+  font-weight: 700;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+}
+
+/*==============================
+H2
+==============================*/
+
+.section-heading h2 {
+  font-size: clamp(38px, 4vw, 48px);
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+}
+
+/*==============================
+H3
+==============================*/
+
+.service-card h3,
+.why-card h3,
+.product-content h3,
+.blog-content h3,
+.testimonial-user h4 {
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+/*==============================
+PARAGRAPH
+==============================*/
+
+p {
+  margin: 0;
+
+  line-height: 1.85;
+
+  color: var(--text-light);
+}
+
+/*==============================
+LINK
+==============================*/
+
+a {
+  text-decoration: none;
+
+  transition: var(--transition);
+}
+
+/*==============================
+IMAGE
+==============================*/
+
+img {
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+}
+/*==================================================
+SECTION 51
+GLOBAL ANIMATION
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+GLOBAL TRANSITION
+==============================*/
+
+* {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+/*==============================
+CARD HOVER
+==============================*/
+
+.service-card,
+.brand-card,
+.product-card,
+.why-card,
+.testimonial-card,
+.blog-card {
+  transition: all 0.35s ease;
+}
+
+.service-card:hover,
+.brand-card:hover,
+.product-card:hover,
+.why-card:hover,
+.testimonial-card:hover,
+.blog-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.1);
+}
+
+/*==============================
+IMAGE HOVER
+==============================*/
+
+.product-image img,
+.blog-image img,
+.brand-card img {
+  transition: transform 0.45s ease;
+}
+
+.product-card:hover .product-image img,
+.blog-card:hover .blog-image img,
+.brand-card:hover img {
+  transform: scale(1.06);
+}
+
+/*==============================
+ICON HOVER
+==============================*/
+
+.service-icon,
+.why-icon,
+.footer-social a {
+  transition: all 0.35s ease;
+}
+
+.service-card:hover .service-icon,
+.why-card:hover .why-icon {
+  transform: translateY(-4px);
+}
+
+/*==============================
+LINK
+==============================*/
+
+a {
+  transition: 0.3s ease;
+}
+
+/*==============================
+BUTTON
+==============================*/
+
+.btn {
+  transition: all 0.35s ease;
+}
+/*==================================================
+
+MẮT KÍNH ACE
+
+Desktop Version : 1.0
+
+Status : COMPLETE
+
+Author : david truong
+
+==================================================*/
+/*==================================================
+SECTION 53
+GLOBAL RESPONSIVE SETUP
+
+Status : LOCKED
+Version : 1.0
+==================================================*/
+
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 992px) {
+  :root {
+    --container: 92%;
+  }
+}
+
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 768px) {
+  :root {
+    --container: 94%;
+  }
+
+  body {
+    font-size: 16px;
+
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .container {
+    width: min(var(--container), 100%);
+  }
+}
+
+/*==============================
+SMALL MOBILE
+==============================*/
+
+@media (max-width: 576px) {
+  section {
+    padding: 64px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 48px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+
+    line-height: 1.2;
+  }
+
+  .section-heading p {
+    font-size: 16px;
+  }
+}
+/* END OF FILE */
+/*==================================================
+SECTION R2
+GLOBAL SPACING SYSTEM
+
+Purpose :
+- Remove unnecessary white space
+- Unified spacing
+- Premium layout
+
+Status : REBUILD
+Version : 2.0
+==================================================*/
+
+/*==============================
+GLOBAL SECTION
+==============================*/
+
+section {
+  padding: 90px 0;
+}
+
+/*==============================
+SECTION HEADING
+==============================*/
+
+.section-heading {
+  margin-bottom: 60px;
+}
+
+.section-heading .section-label {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin-bottom: 20px;
+}
+
+.section-heading p {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/*==============================
+GRID
+==============================*/
+
+.services-grid,
+.brand-grid,
+.product-grid,
+.why-grid,
+.testimonial-grid,
+.blog-grid {
+  margin-top: 20px;
+}
+
+/*==============================
+CARD GAP
+==============================*/
+
+.services-grid,
+.brand-grid,
+.product-grid,
+.why-grid,
+.testimonial-grid,
+.blog-grid {
+  gap: 30px;
+}
+
+/*==============================
+CTA
+==============================*/
+
+.cta {
+  padding: 80px 0;
+}
+
+/*==============================
+FOOTER
+==============================*/
+
+.footer {
+  margin-top: 0;
+}
+/*==============================
+REMOVE EXTRA SPACE
+==============================*/
+
+.hero {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.stats {
+  padding: 70px 0;
+}
+
+.services {
+  padding: 60px 0;
+}
+
+.brands {
+  padding-top: 50px;
+  padding-bottom: 90px;
+}
+
+.products {
+  padding: 90px 0 40px;
+}
+
+.why {
+  padding: 70px 0 100px;
+}
+
+.testimonials {
+  padding: 90px 0;
+}
+
+.blog {
+  padding: 90px 0;
+}
+
+.cta {
+  padding: 80px 0;
+}
+/*==============================
+LAST ELEMENT
+==============================*/
+
+section:last-of-type {
+  margin-bottom: 0;
+}
+
+section > *:last-child {
+  margin-bottom: 0;
+}
+/*==================================================
+SECTION R3
+RESPONSIVE REBUILD
+
+Purpose :
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+- Unified Responsive
+
+Status : REBUILD
+Version : 2.0
+==================================================*/
+/*==============================
+DESKTOP LARGE
+==============================*/
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+/*==============================
+LAPTOP
+==============================*/
+
+@media (max-width: 1200px) {
+  .container {
+    width: 94%;
+  }
+
+  .hero-wrapper,
+  .services-grid,
+  .brand-grid,
+  .product-grid,
+  .why-grid,
+  .testimonial-grid,
+  .blog-grid {
+    gap: 24px;
+  }
+}
+/*==============================
+TABLET
+==============================*/
+
+@media (max-width: 991px) {
+  section {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 45px;
+  }
+
+  .hero-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .services-grid,
+  .brand-grid,
+  .product-grid,
+  .why-grid,
+  .testimonial-grid,
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-image {
+    order: -1;
+  }
+}
+/*==============================
+MOBILE
+==============================*/
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 35px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+    line-height: 1.25;
+  }
+
+  .hero {
+    padding-top: 30px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .services-grid,
+  .brand-grid,
+  .product-grid,
+  .why-grid,
+  .testimonial-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .container {
+    width: 92%;
+  }
+}
+
+/*==============================
+SMALL MOBILE
+==============================*/
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .section-heading h2 {
+    font-size: 28px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/*==================================================
+SECTION R4.1
+MOBILE HEADER REBUILD
+==================================================*/
+
+@media (max-width: 768px) {
+  /* Topbar */
+
+  .topbar {
+    display: none;
+  }
+
+  /* Header */
+
+  .header {
+    height: 72px;
+  }
+
+  .header-wrapper {
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  /* Logo */
+
+  .logo img {
+    width: 46px;
+  }
+
+  .logo-text h2 {
+    font-size: 18px;
+  }
+
+  .logo-text p {
+    display: none;
+  }
+
+  /* Desktop Menu */
+
+  .menu {
+    display: none;
+  }
+
+  /* Desktop Action */
+
+  .header-action {
+    display: none;
+  }
+
+  /* Mobile Button */
+
+  .mobile-toggle {
+    display: flex;
+
+    width: 46px;
+
+    height: 46px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+  }
+
+  .mobile-toggle i {
+    font-size: 24px;
+  }
+}
+/*==================================================
+SECTION R4.2
+HERO MOBILE
+==================================================*/
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0 60px;
+  }
+
+  .hero-wrapper {
+    display: flex;
+
+    flex-direction: column-reverse;
+
+    gap: 32px;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin: 0 auto 28px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+  .hero-label {
+    margin: auto;
+  }
+}
+/*==================================================
+SECTION R4.3
+HERO POLISH
+==================================================*/
+
+@media (max-width: 768px) {
+  /* Hero */
+
+  .hero {
+    padding: 32px 0 50px;
+  }
+
+  /* Badge */
+
+  .hero-label {
+    margin: 0 auto 20px;
+
+    padding: 14px 30px;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+  }
+
+  /* Title */
+
+  .hero-content h1 {
+    font-size: 32px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 2dvb;
+
+    text-wrap: balance;
+
+    word-break: keep-all;
+  }
+
+  /* Description */
+
+  .hero-content p {
+    max-width: 340px;
+
+    margin: 0 auto 28px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+  }
+
+  /* Button Group */
+
+  .hero-buttons {
+    flex-direction: column;
+
+    gap: 14px;
+
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+
+    max-width: 300px;
+  }
+
+  /* Hero Image */
+
+  .hero-image {
+    margin-top: 12px;
+  }
+}
+/*==================================================
+SECTION R4.4
+HERO STATS PREMIUM MOBILE
+==================================================*/
+
+@media (max-width: 768px) {
+  .hero-stats {
+    display: flex !important;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    flex-wrap: nowrap;
+  }
+
+  .stat-item {
+    flex: 1;
+
+    padding: 14px 8px;
+
+    border-radius: 16px;
+
+    background: #fff;
+
+    border: 1px solid rgba(30, 166, 166, 0.12);
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+
+    text-align: center;
+
+    transition: 0.3s;
+  }
+
+  .stat-item:active {
+    transform: translateY(-4px);
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .stat-item h3 {
+    font-size: 28px;
+
+    margin-bottom: 6px;
+
+    color: var(--primary);
+
+    font-weight: 800;
+
+    line-height: 1;
+  }
+
+  .stat-item span {
+    display: block;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+    color: #666;
+  }
+}
+/*==================================================
+SECTION R4.6
+HERO CLEANUP
+==================================================*/
+
+@media (max-width: 768px) {
+  /* HERO */
+
+  .hero {
+    padding: 28px 0 50px;
+  }
+
+  .hero-wrapper {
+    display: flex;
+
+    flex-direction: column-reverse;
+
+    gap: 32px;
+
+    align-items: center;
+  }
+
+  /* IMAGE */
+
+  .hero-image {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+  }
+
+  /* CONTENT */
+
+  .hero-content {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  /* LABEL */
+
+  .hero-label {
+    margin: auto;
+  }
+
+  /* TITLE */
+
+  /* DESCRIPTION */
+
+  .hero-content p {
+    max-width: 92%;
+
+    margin: 0 auto 28px;
+  }
+
+  /* BUTTONS */
+
+  .hero-buttons {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+}
+/*==================================================
+SECTION R5
+GLOBAL MOBILE SPACING
+==================================================*/
+
+@media (max-width: 768px) {
+  /* Khoảng cách giữa các section */
+
+  section {
+    padding: 60px 0 !important;
+  }
+
+  /* Section đầu tiên (Hero) */
+
+  .hero {
+    padding-top: 24px !important;
+
+    padding-bottom: 40px !important;
+  }
+
+  /* Tiêu đề section */
+
+  .section-title {
+    margin-bottom: 14px;
+  }
+
+  /* Mô tả section */
+
+  .section-desc {
+    margin-bottom: 32px;
+  }
+}
+/*==================================================
+SECTION R5.1
+GLOBAL SPACING SYSTEM
+==================================================*/
+
+:root {
+  --section-space-desktop: 90px;
+
+  --section-space-tablet: 70px;
+
+  --section-space-mobile: 52px;
+}
+
+/* Desktop */
+
+section {
+  padding: var(--section-space-desktop) 0;
+}
+
+/* Tablet */
+
+@media (max-width: 992px) {
+  section {
+    padding: var(--section-space-tablet) 0;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  section {
+    padding: var(--section-space-mobile) 0;
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding: 30px 0 50px;
+  }
+
+  .hero-wrapper {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+
+    max-width: 420px;
+
+    margin: auto;
+
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  /* --- ĐOẠN CODE KÍCH HOẠT MENU MOBILE KHÔNG LO VỠ DESKTOP --- */
+  .mobile-toggle {
+    display: flex !important; /* Hiện lại nút 3 gạch trên điện thoại */
+  }
+
+  .mobile-menu {
+    display: block !important; /* Hiện lại bảng menu trên điện thoại */
+  }
+
+  .mobile-menu.active {
+    right: 0 !important; /* Đẩy menu trượt ra khi bấm mở */
+  }
+
+  .mobile-overlay {
+    display: block !important; /* Hiện lại lớp phủ trên điện thoại */
+  }
+
+  .mobile-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important; /* Làm nổi bật lớp nền mờ khi mở menu */
+  }
+  /* ---------------------------------------------------------- */
+
+  section {
+    padding: var(--section-space-mobile) 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 30px 0 50px;
+  }
+
+  /* ... Giữ nguyên các đoạn code hero-wrapper, hero-image bên dưới của bạn ... */
+  @media (max-width: 768px) {
+    /* 1. Nâng cấp bảng Menu: Chuyển động siêu mượt và thêm bo góc mềm mại */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98); /* Hiệu ứng kính trong suốt nhẹ */
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+      /* Thay đổi kiểu cubic-bezier giúp menu trượt ra có độ nảy vô cùng premium */
+      transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        right 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
+
+    /* Trạng thái khi mở Menu di động */
+    .mobile-menu.active {
+      right: 0 !important;
+    }
+
+    /* 2. Nâng cấp lớp nền mờ (Overlay): Thêm blur cho hậu cảnh giống Apple */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(
+        11,
+        19,
+        32,
+        0.4
+      ); /* Màu nền trùng với màu secondary của bạn */
+      backdrop-filter: blur(4px); /* Làm mờ phần web phía sau */
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+      z-index: 9998;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* 3. Hiệu ứng chuyển động cho các dòng chữ menu bên trong */
+    .mobile-nav a {
+      display: block;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--secondary);
+      /* Chuẩn bị trạng thái ẩn để làm hiệu ứng xuất hiện từ từ */
+      opacity: 0;
+      transform: translateY(15px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        color 0.3s ease;
+    }
+
+    /* Khi menu mở ra (.active), kích hoạt cho các chữ trượt lên và hiện rõ */
+    .mobile-menu.active .mobile-nav a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 4. Tạo độ trễ (Delay) để các chữ xuất hiện tuần tự từ trên xuống dưới */
+    .mobile-menu.active .mobile-nav a:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(4) {
+      transition-delay: 0.25s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(5) {
+      transition-delay: 0.3s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(6) {
+      transition-delay: 0.35s;
+    }
+    .mobile-menu.active .mobile-nav a:nth-child(7) {
+      transition-delay: 0.4s;
+    }
+
+    /* Hiệu ứng nhẹ khi ngón tay bấm (hover/active) vào danh mục kính */
+    .mobile-nav a:hover,
+    .mobile-nav a:active {
+      color: var(--primary) !important;
+      padding-left: 8px; /* Chữ dịch nhẹ sang phải khi chạm vào */
+    }
+  }
+  /*==================================================
+ÉP GIAO DIỆN TAB SẢN PHẨM MOBILE PHẢI CÂN ĐỐI
+==================================================*/
+  @media (max-width: 768px) {
+    .product-tabs {
+      display: flex !important;
+      flex-wrap: nowrap !important; /* Cấm tuyệt đối xuống hàng */
+      justify-content: space-between !important; /* Dàn đều khoảng cách 4 nút ra hết màn hình */
+      align-items: center !important;
+      gap: 8px !important; /* Khoảng cách vừa vặn giữa các nút */
+      margin: 24px 0 !important;
+      padding: 6px 4% !important; /* Thụt lề 2 bên trái phải đều nhau 4% */
+      overflow-x: hidden !important; /* Khóa cuộn nếu đã vừa vặn */
+      width: 100% !important;
+    }
+
+    .product-tabs button {
+      flex: 1 !important; /* Chia đều 4 nút chiếm diện tích bằng nhau */
+      min-width: 0 !important;
+      max-width: 25% !important;
+      height: 42px !important; /* Chiều cao gọn gàng */
+      padding: 0 !important; /* Xóa padding chữ để không bị kích dòng */
+      font-size: 13px !important; /* Hạ nhẹ font chữ xuống 13px để đứng vừa 1 hàng */
+      white-space: nowrap !important; /* Giữ chữ trên một dòng */
+      text-align: center !important;
+    }
+  }
+  /*==================================================
+ÉP TIÊU ĐỀ LABEL MOBILE KHÔNG BỊ XUỐNG HÀNG
+==================================================*/
+  @media (max-width: 768px) {
+    .products .section-label {
+      display: inline-flex !important; /* Chuyển về inline-flex để ôm vừa chữ */
+      flex-wrap: nowrap !important; /* Cấm tuyệt đối gãy dòng */
+      white-space: nowrap !important; /* Ép chữ luôn trên 1 dòng duy nhất */
+      font-size: 14px !important; /* Hạ nhẹ size chữ trên mobile cho thanh thoát */
+      letter-spacing: 2px !important; /* Thu nhỏ khoảng cách chữ một chút */
+      gap: 10px !important; /* Thu hẹp khoảng cách với 2 đường gạch bên cạnh */
+      width: auto !important;
+      max-width: 100% !important;
+    }
+
+    /* Khống chế 2 đường gạch ngang hai bên không cho chiếm quá nhiều diện tích */
+    .products .section-label::before,
+    .products .section-label::after {
+      width: 40px !important; /* Thu ngắn thanh gạch ngang trên mobile */
+      flex-shrink: 1 !important; /* Cho phép tự co lại nếu màn hình quá hẹp */
+    }
+  }
+  /*==================================================
+ÉP TIÊU ĐỀ LỚN NẰM TRÊN 1 HÀNG (DESKTOP & MOBILE)
+==================================================*/
+
+  /* Áp dụng cho màn hình máy tính (Desktop) */
+  .section-heading h2 {
+    max-width: 100% !important; /* Bỏ giới hạn độ rộng cũ */
+    white-space: nowrap !important; /* Ép chữ luôn nằm trên 1 hàng */
+    font-size: 38px !important; /* Giữ cỡ chữ Desktop đẹp chuẩn */
+    text-align: center !important;
+  }
+
+  /* Cân bằng lại cho màn hình điện thoại (Mobile) */
+  @media (max-width: 768px) {
+    .section-heading h2 {
+      white-space: nowrap !important; /* Ép di động cũng không được xuống hàng */
+      font-size: 22px !important; /* Hạ cỡ chữ xuống 22px để đứng vừa vặn 1 dòng trên Mobile */
+      letter-spacing: -0.5px !important; /* Thu nhỏ khoảng cách chữ một chút cho gọn */
+      line-height: 1.2 !important;
+    }
+
+    .section-heading p {
+      font-size: 14px !important; /* Đoạn mô tả ngắn bên dưới cũng thu nhỏ cho cân đối */
+      padding: 0 10px !important;
+    }
+  }
+} /* Dấu ngoặc này để đóng nốt cái @media (max-width: 768px) còn sót lại ở trên */
+
+/*==================================================
+TẤN CÔNG TRIỆT ĐỂ VÀO CONTAINER BỌC TIÊU ĐỀ LỚN DESKTOP
+==================================================*/
+@media (min-width: 993px) {
+  /* Ép container của section sản phẩm không được bóp nghẹt chiều ngang */
+  .products .container {
+    max-width: 1200px !important;
+    width: 100% !important;
+  }
+
+  .products .section-heading {
+    max-width: 100% !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .products .section-heading h2 {
+    display: block !important;
+    white-space: nowrap !important; /* Tuyệt chiêu tối thượng: Cấm tuyệt đối xuống hàng */
+    font-size: 36px !important; /* Cỡ chữ cân đối vừa vặn */
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+/*==================================================
+CÂN BẰNG ĐƯỜNG CHÂN TRỜI GIÁ TIỀN & NÚT BẤM DESKTOP
+==================================================*/
+@media (min-width: 993px) {
+  /* 1. Ép toàn bộ chiếc card thành Flexbox dọc */
+  .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+
+  /* 2. Phần nội dung chữ tự phình to để đẩy các phần dưới xuống đáy */
+  .product-content {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 20px !important;
+  }
+
+  /* 3. Khống chế tiêu đề: Dù 1 dòng hay 2 dòng thì phần không gian chiếm vẫn y hệt nhau */
+  .product-content h3 {
+    min-height: 52px !important;
+    margin-bottom: 5px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* 4. Khống chế phần đánh giá sao (Rating) */
+  .product-rating {
+    min-height: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* 5. TUYỆT CHIÊU: Ép giá gốc (giá mờ) luôn chiếm một khoảng cao bằng nhau */
+  .old-price {
+    display: block !important;
+    min-height: 18px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* 6. Ép giá mới (giá đậm màu xanh) đứng thẳng hàng */
+  .new-price {
+    display: block !important;
+    min-height: 28px !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* 7. Tag tiết kiệm luôn cách đều nút bấm */
+  .product-save {
+    margin-top: auto !important; /* Đẩy cụm tag và nút bấm dính chặt đáy card */
+    margin-bottom: 14px !important;
+    align-self: center !important;
+  }
+
+  /* 8. Nút xem chi tiết nằm cố định ở đáy */
+  .product-card .btn {
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+}
+/*==================================================
+SỬA LỖI DROPDOWN MENU CHUẨN XỊN - KHÔNG PHÁ MENU GỐC
+==================================================*/
+@media (min-width: 993px) {
+  /* 1. Ép thẻ cha chứa menu con phải làm tâm định vị */
+  .menu ul li.has-dropdown {
+    position: relative !important;
+  }
+
+  /* 2. Ép icon mũi tên nằm ngay ngắn, không phá hàng */
+  .menu ul li.has-dropdown a i {
+    display: inline-block !important;
+    margin-left: 5px !important;
+    vertical-align: middle !important;
+  }
+
+  /* 3. THIẾT KẾ LẠI HỘP TRẮNG VÀ GIẤU BIẾN KHI CHƯA RÊ CHUỘT */
+  .menu ul li .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    background: #ffffff !important;
+    min-width: 200px !important;
+    padding: 8px 0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #eeeeee !important;
+
+    /* Lệnh giấu ẩn cốt lõi */
+    display: none !important;
+    z-index: 99999 !important;
+  }
+
+  /* 4. ÉP CÁC MỤC CON XẾP HÀNG DỌC (Bẻ gãy hàng ngang lỗi) */
+  .menu ul li .dropdown-menu li {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 5. ĐỊNH DẠNG CHỮ CON CHO GỌN GÀNG, TINH TẾ */
+  .menu ul li .dropdown-menu li a {
+    display: block !important;
+    padding: 10px 18px !important;
+    font-size: 14px !important;
+    color: #333333 !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+  }
+
+  /* 6. HIỆU ỨNG HOVER CHUẨN: Chỉ khi rê chuột mới hiện ra */
+  .menu ul li.has-dropdown:hover .dropdown-menu {
+    display: block !important;
+  }
+
+  /* 7. Hover từng dòng chữ đổi màu xanh ngọc thanh lịch */
+  .menu ul li .dropdown-menu li a:hover {
+    background-color: #f5f7f8 !important;
+    color: #009688 !important;
+    padding-left: 22px !important;
+    transition: all 0.2s ease !important;
+  }
+}
+/*==================================================
+TẤN CÔNG ĐỘ ƯU TIÊN: ÉP HỘP MENU CON THU GỌN TUYỆT ĐỐI
+==================================================*/
+@media (min-width: 993px) {
+  /* Ép chiều rộng và padding bọc ngoài của hộp trắng */
+  .menu > ul > li > .dropdown-menu {
+    min-width: 190px !important;
+    width: 190px !important;
+    padding: 5px 0 !important;
+    height: auto !important;
+  }
+
+  /* Ép từng mục li con không được tự giãn khoảng cách */
+  .menu > ul > li > .dropdown-menu > li {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    line-height: 1 !important;
+  }
+
+  /* ĐÁNH TRỰC DIỆN VÀO THẺ A: Thu hẹp khoảng cách chữ (padding dọc) */
+  .menu > ul > li > .dropdown-menu > li > a {
+    padding: 8px 15px !important; /* Giảm hẳn padding để chữ khít sát nhau gọn gàng */
+    margin: 0 !important;
+    font-size: 13.5px !important;
+    line-height: 1.3 !important;
+    display: block !important;
+    height: auto !important;
+  }
+}
+/*==================================================
+CHỐT HẠ: CÂN BẰNG THẲNG HÀNG TRỤC NGANG MENU CHÍNH
+==================================================*/
+@media (min-width: 993px) {
+  /* Ép toàn bộ khối menu chính phải căn giữa theo logo */
+  .menu {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  /* Ép dải menu ul nằm thẳng băng, các mục không chen chúc */
+  .menu > ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 20px !important; /* Giữ khoảng cách rộng rãi giữa các mục chính */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ép các thẻ li chính giữ đúng vị trí */
+  .menu > ul > li {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: auto !important;
+  }
+
+  /* TUYỆT CHIÊU: Trị dứt điểm chữ lệch và icon nhảy lung tung */
+  .menu > ul > li > a {
+    display: inline-flex !important;
+    align-items: center !important; /* Căn chữ và icon mũi tên luôn nằm trên 1 trục ngang */
+    justify-content: center !important;
+    gap: 6px !important; /* Khoảng cách vừa vặn giữa chữ và mũi tên */
+    padding: 10px 0 !important;
+    line-height: 1 !important; /* Khống chế không cho chữ nhảy dòng hay lệch dòng */
+    height: 100% !important;
+  }
+
+  /* Khống chế icon mũi tên nhỏ không được bay lên cao */
+  .menu > ul > li > a i {
+    display: inline-block !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    font-size: 11px !important;
+    transform: translateY(1px) !important; /* Nhích nhẹ 1px xuống cho cân mắt */
+  }
+}
+/*==================================================
+TRIỆT TIÊU HOÀN TOÀN KHUNG VIỀN XANH CỦA MENU CHÍNH
+==================================================*/
+@media (min-width: 993px) {
+  /* Xóa bỏ border trực tiếp trên thẻ A */
+  .menu > ul > li > a,
+  .menu > ul > li > a:hover,
+  .menu > ul > li > a:focus,
+  .menu > ul > li > a:active {
+    border: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* GIẾT CHẾT CÁC ĐƯỜNG VIỀN ẨN (Nếu theme dùng hiệu ứng Before/After) */
+  .menu > ul > li > a::before,
+  .menu > ul > li > a::after,
+  .menu > ul > li:hover > a::before,
+  .menu > ul > li:hover > a::after {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+  }
+}
+/*==================================================
+DIỆT TẬN GỐC ĐƯỜNG GẠCH LỖI TRÊN ĐẦU CHỮ MENU CON
+==================================================*/
+@media (min-width: 993px) {
+  /* 1. Xóa toàn bộ các đường gạch viền vật lý trên menu con */
+  .menu ul li .dropdown-menu li,
+  .menu ul li .dropdown-menu li a,
+  .menu ul li .dropdown-menu li a:hover {
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+  }
+
+  /* 2. TRIỆT TIÊU HOÀN TOÀN thanh gạch giả (::before / ::after) của menu con */
+  .menu ul li .dropdown-menu li::before,
+  .menu ul li .dropdown-menu li::after,
+  .menu ul li .dropdown-menu li a::before,
+  .menu ul li .dropdown-menu li a::after,
+  .menu ul li.has-dropdown:hover .dropdown-menu li a::before,
+  .menu ul li.has-dropdown:hover .dropdown-menu li a::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    height: 0 !important;
+    width: 0 !important;
+  }
+
+  /* 3. ĐỊNH DẠNG LẠI HIỆU ỨNG HOVER CHUYỂN MÀU NỀN SANG TRỌNG */
+  .menu ul li .dropdown-menu li a {
+    display: block !important;
+    padding: 10px 16px !important;
+    font-size: 13.5px !important;
+    color: #333333 !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+    margin: 2px 8px !important;
+    transition: all 0.25s ease-in-out !important;
+  }
+
+  /* Rê chuột vào: Đổi nền xám khói, chữ xanh ngọc, dịch chuyển nhẹ */
+  .menu ul li .dropdown-menu li a:hover {
+    background-color: #f4f6f7 !important;
+    color: #009688 !important;
+    padding-left: 22px !important;
+  }
+}
+/*==================================================
+ÉP THANH MENU CHÍNH LUÔN THẲNG HÀNG, KHÔNG XUỐNG DÒNG
+==================================================*/
+@media (min-width: 993px) {
+  /* Thu hẹp gap (khoảng cách giữa các mục menu chính) từ 20px xuống 12px để tiết kiệm không gian */
+  .menu > ul {
+    gap: 12px !important;
+    flex-wrap: nowrap !important; /* Cấm tuyệt đối không cho các mục nhảy xuống hàng dưới */
+  }
+
+  /* Khống chế chữ trên menu chính không bao giờ được bẻ đôi xuống dòng */
+  .menu > ul > li > a {
+    white-space: nowrap !important; /* Ép chữ "Trang chủ", "Thương hiệu" phải nằm trên 1 hàng */
+    font-size: 14.5px !important; /* Thu nhỏ size chữ nhẹ 0.5px để vừa vặn hoàn hảo với khung */
+  }
+
+  /* Thu nhỏ nhẹ icon mũi tên để không chiếm không gian */
+  .menu > ul > li > a i {
+    font-size: 10px !important;
+  }
+}
+/*==================================================
+TỐI ƯU MENU DROPDOWN CHO GIAO DIỆN MOBILE & TABLET
+==================================================*/
+@media (max-width: 992px) {
+  /* 1. Ép các mục menu chính xếp hàng dọc trên Mobile */
+  .menu ul {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  .menu ul > li {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; /* Vạch chia dòng nhẹ */
+  }
+
+  /* 2. Căn chỉnh chữ menu chính trên Mobile cho thoáng */
+  .menu ul > li > a {
+    display: flex !important;
+    justify-content: space-between !important; /* Đẩy icon mũi tên về sát bên phải */
+    align-items: center !important;
+    padding: 14px 10px !important;
+    font-size: 15px !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+  }
+
+  /* 3. ĐỊNH DẠNG LẠI HỘP TRẮNG THÀNH DẠNG XỔ DỌC (ACCORDION) */
+  .menu ul li .dropdown-menu {
+    position: relative !important; /* Không cho bay trôi nổi nữa */
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    background: #f9fbfb !important; /* Đổi nền menu con sang màu xám ngọc nhạt để phân biệt */
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+
+    /* Mặc định trên Mobile: Ẩn đi, khi nào có class .open mới hiện */
+    display: none !important;
+  }
+
+  /* Khi active/open thì mới xổ dòng ra */
+  .menu ul li.open .dropdown-menu {
+    display: block !important;
+  }
+
+  /* 4. Định dạng các dòng chữ mục con trên Mobile */
+  .menu ul li .dropdown-menu li {
+    border: none !important;
+  }
+
+  .menu ul li .dropdown-menu li a {
+    display: block !important;
+    padding: 12px 25px !important; /* Thụt lề vào trong một chút */
+    font-size: 14px !important;
+    color: #555555 !important;
+    font-weight: 500 !important;
+    border: none !important;
+  }
+
+  /* Xóa bỏ hoàn toàn hiệu ứng lướt hover của Desktop trên Mobile để tránh lỗi chạm cảm ứng */
+  .menu ul li.has-dropdown:hover .dropdown-menu {
+    display: none !important;
+  }
+  .menu ul li.has-dropdown.open:hover .dropdown-menu {
+    display: block !important;
+  }
+}
+/*==================================================
+CSS ĐẶC TRỊ DROPDOWN MENU TRÊN MOBILE
+==================================================*/
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Định dạng các nút cha */
+.mobile-nav a {
+  display: block;
+  padding: 14px 20px;
+  color: #333333;
+  font-weight: 600;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
+/* Nút chứa dropdown: đẩy mũi tên sang góc phải */
+.mobile-dropdown-toggle {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-dropdown-toggle i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  color: #888;
+}
+
+/* Hộp chứa menu con: Mặc định ẩn đi */
+.mobile-dropdown-menu {
+  display: none;
+  background-color: #f7f9fa; /* Nền xám ngọc nhạt phân biệt menu con */
+}
+
+/* Các link con bên trong: Thụt lề vào và chữ nhỏ hơn chút */
+.mobile-dropdown-menu a {
+  padding: 12px 35px !important;
+  font-size: 14px;
+  color: #555555;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Khi active: Hiện menu con và xoay ngược mũi tên */
+.mobile-dropdown.active .mobile-dropdown-menu {
+  display: block;
+}
+
+.mobile-dropdown.active .mobile-dropdown-toggle {
+  color: #009688; /* Đổi chữ menu cha sang xanh ngọc khi đang mở */
+}
+
+.mobile-dropdown.active .mobile-dropdown-toggle i {
+  transform: rotate(180deg);
+  color: #009688;
+}
+/*==================================================
+BẬT TÍNH NĂNG CUỘN MƯỢT MÀ CHO MENU MOBILE KHI QUÁ DÀI
+==================================================*/
+.mobile-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  max-height: 100vh !important; /* Giới hạn chiều cao bằng đúng màn hình điện thoại */
+  overflow: hidden !important;
+}
+
+/* Ép riêng phần chứa các nút bấm được phép cuộn dọc */
+.mobile-nav {
+  flex: 1 !important;
+  overflow-y: auto !important; /* Bật thanh cuộn dọc khi menu dài ra */
+  -webkit-overflow-scrolling: touch !important; /* Giúp hiệu ứng vuốt trên iPhone/Android mượt, có độ trớn */
+  padding-bottom: 30px !important; /* Tạo khoảng trống nhẹ dưới đáy để không bị sát quá */
+}
+/*==================================================
+THIẾT KẾ NÚT CỘNG TÁC VIÊN (AFFILIATE) NỔI BẬT
+==================================================*/
+@media (min-width: 993px) {
+  /* Khống chế vị trí thẻ li chứa nút */
+  .menu > ul > li.menu-ctv {
+    display: inline-flex !important;
+    align-items: center !important;
+    margin-left: 10px !important; /* Tạo khoảng cách nhẹ với nút Liên hệ */
+  }
+
+  /* Tạo hình dáng chiếc nút Badge xịn mịn */
+  .menu > ul > li.menu-ctv a.btn-ctv {
+    background: linear-gradient(
+      135deg,
+      #00bfa5,
+      #009688
+    ) !important; /* Màu xanh ngọc chuyển sắc gradient */
+    color: #ffffff !important;
+    padding: 8px 16px !important;
+    border-radius: 50px !important; /* Bo tròn hoàn toàn */
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.3) !important; /* Đổ bóng phát sáng nhẹ */
+    transition: all 0.3s ease !important;
+    gap: 6px !important;
+  }
+
+  /* Hiệu ứng khi rê chuột (Hover): Nút to lên nhẹ và đổi màu sáng hơn */
+  .menu > ul > li.menu-ctv a.btn-ctv:hover {
+    transform: translateY(-2px) scale(1.03) !important;
+    box-shadow: 0 6px 15px rgba(0, 150, 136, 0.5) !important;
+    background: linear-gradient(135deg, #00d2b4, #00a896) !important;
+  }
+}
+
+/* -------------------------------------------------
+CẤU HÌNH NÚT CỘNG TÁC VIÊN TRÊN MOBILE
+------------------------------------------------- */
+@media (max-width: 992px) {
+  a.mobile-btn-ctv {
+    background: linear-gradient(135deg, #00bfa5, #009688) !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    margin: 15px 20px !important; /* Tạo khoảng cách trống xung quanh */
+    padding: 12px !important;
+    border-radius: 8px !important; /* Bo góc vuông vắn hợp UI mobile */
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.2) !important;
+    border: none !important;
+  }
+}
+/*==================================================
+PHÁ BẪY CHIỀU CAO CỐ ĐỊNH - NÉN SẢN PHẨM KHÍT KHAO TRÊN MOBILE
+==================================================*/
+@media (max-width: 992px) {
+  /* 1. Phá bỏ chiều cao cố định của toàn bộ thẻ sản phẩm */
+  .product-card,
+  .product-item,
+  [class*="product-card"],
+  [class*="product-item"] {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    padding-bottom: 12px !important; /* Chừa khoảng trống nhẹ dưới đáy thẻ */
+  }
+
+  /* 2. Triệt tiêu căn đều giãn cách (space-between), ép xếp sát nhau từ trên xuống */
+  .product-card .product-content,
+  .product-card .product-info,
+  [class*="product-card"] [class*="content"],
+  [class*="product-card"] [class*="info"] {
+    height: auto !important;
+    min-height: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* Ép gom về một cụm, không tự giãn khoảng cách */
+    align-items: center !important;
+    gap: 3px !important; /* Khống chế chính xác khoảng cách giữa các dòng chữ đúng 3px */
+    padding: 10px 8px !important;
+  }
+
+  /* 3. Reset khẩn cấp toàn bộ margin/padding tự do của các thành phần con về 0 */
+  .product-card .product-content *,
+  [class*="product-card"] [class*="content"] * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 4. Tái thiết lập khoảng cách tinh tế sau khi đã dọn sạch margin rác */
+  .product-card h3,
+  [class*="product-title"] {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Cụm sao */
+  .product-card .rating,
+  [class*="rating"] {
+    display: flex !important;
+    gap: 3px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Giá cũ (Gạch ngang) */
+  .product-card .old-price,
+  [class*="old-price"] {
+    font-size: 11px !important;
+    text-decoration: line-through !important;
+    opacity: 0.6 !important;
+    margin-bottom: 1px !important;
+  }
+
+  /* Giá mới (Xanh ngọc) */
+  .product-card .new-price,
+  [class*="price"] {
+    font-size: 14.5px !important;
+    font-weight: bold !important;
+    color: #009688 !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Nhãn tiết kiệm % */
+  .product-card .discount-badge,
+  [class*="badge"],
+  [class*="discount"] {
+    padding: 2px 8px !important;
+    font-size: 11px !important;
+    border-radius: 20px !important;
+    display: inline-block !important;
+    width: fit-content !important;
+    margin-bottom: 10px !important; /* Tạo khoảng trống nhẹ với nút Xem chi tiết ở dưới */
+  }
+
+  /* Nút Xem chi tiết */
+  .product-card .btn,
+  .product-card button,
+  .product-card a[class*="btn"] {
+    width: 90% !important;
+    padding: 8px 0 !important;
+    font-size: 13px !important;
+  }
+}
+/*==================================================
+THU HẸP KHOẢNG CÁCH KHU VỰC TẠI SAO CHỌN ACE (ALL THIẾT BỊ)
+==================================================*/
+/* 1. Ép giảm khoảng cách phía trên của section "Tại sao chọn ACE" */
+.why-choose-us,
+.why-choose,
+section[class*="why-choose"],
+#why-choose {
+  padding-top: 30px !important; /* Thu hẹp đệm trên xuống còn 30px */
+  margin-top: 0 !important;
+}
+
+/* 2. Ép giảm khoảng cách phía dưới của section sản phẩm ngay phía trên nó */
+.why-choose-us pre-sibling,
+.products-section,
+.featured-products,
+section[class*="product"] {
+  padding-bottom: 20px !important; /* Thu hẹp đệm dưới của hàng sản phẩm */
+  margin-bottom: 0 !important;
+}
+
+/* 3. Tối ưu riêng cho Mobile (Dưới 992px) để nhìn khít và mướt mắt hơn nữa */
+@media (max-width: 992px) {
+  .why-choose-us,
+  section[class*="why-choose"] {
+    padding-top: 20px !important; /* Trên Mobile chỉ cần cách 20px là đẹp */
+  }
+
+  /* Thu hẹp nhẹ khoảng cách giữa dòng giới thiệu nhỏ và tiêu đề lớn */
+  section[class*="why-choose"] .section-title,
+  section[class*="why-choose"] h2 {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+/*==================================================
+TÔ NỀN NỔI BẬT ĐẬM HƠN CHO SECTION "TẠI SAO CHỌN ACE"
+==================================================*/
+section[class*="why"],
+section[id*="why"],
+section[class*="choose"],
+section[id*="choose"],
+section[class*="reason"],
+.why-choose-us,
+.why-choose {
+  background-color: #e3f2f0 !important; /* Tăng độ đậm của nền xanh ngọc lam dịu, bắt mắt và cực sang */
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Ép 4 cái hộp dịch vụ bên dưới đổi sang màu trắng tinh để nổi bần bật trên nền mới */
+section[class*="why"] [class*="item"],
+section[class*="why"] [class*="card"],
+section[class*="choose"] [class*="item"],
+section[class*="choose"] [class*="card"],
+.why-choose-us .feature-item,
+.why-choose-us .card {
+  background-color: #ffffff !important; /* Trắng tinh khôi đối lập hoàn toàn với nền đậm */
+  border: 1px solid rgba(0, 150, 136, 0.12) !important; /* Viền xanh ngọc mảnh rõ nét hơn */
+  box-shadow: 0 12px 35px rgba(0, 150, 136, 0.08) !important; /* Đổ bóng sâu hơn để tạo độ nổi khối 3D */
+  border-radius: 16px !important; /* Bo góc tròn trịa hiện đại */
+  transition: all 0.3s ease !important;
+}
+
+/* Thêm hiệu ứng bay bổng mạnh khi khách hàng rê chuột (hover) vào các hộp */
+section[class*="why"] [class*="item"]:hover,
+section[class*="choose"] [class*="item"]:hover,
+.why-choose-us .feature-item:hover {
+  transform: translateY(-6px) !important; /* Nhấc nhẹ cái hộp lên 6px */
+  box-shadow: 0 18px 40px rgba(0, 150, 136, 0.15) !important; /* Đổ bóng đậm hơn khi tương tác */
+}
+
+/* Tối ưu riêng trên Mobile cho khít khao */
+@media (max-width: 992px) {
+  section[class*="why"],
+  section[id*="why"],
+  section[class*="choose"],
+  .why-choose-us {
+    padding-top: 35px !important;
+    padding-bottom: 35px !important;
+  }
+}
+/*==================================================
+THIẾT KẾ ĐỘC NHẤT VÔ NHỊ CHO KHU VỰC "TẠI SAO CHỌN ACE"
+==================================================*/
+/* 1. Nền tối giản hiệu ứng chuyển màu xi măng kết hợp xanh ngọc cực sang */
+section[class*="why"],
+section[id*="why"],
+section[class*="choose"],
+section[id*="choose"],
+section[class*="reason"],
+.why-choose-us,
+.why-choose {
+  background: linear-gradient(
+    135deg,
+    #f5fbf9 0%,
+    #e8f4f2 100%
+  ) !important; /* Chuyển màu chéo dịu mắt */
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+/* 2. Thiết kế Hộp Kính Phát Sáng (Glassmorphism & Gradient Border) */
+section[class*="why"] [class*="item"],
+section[class*="why"] [class*="card"],
+section[class*="choose"] [class*="item"],
+section[class*="choose"] [class*="card"],
+.why-choose-us .feature-item,
+.why-choose-us .card {
+  background: rgba(255, 255, 255, 0.85) !important; /* Kính mờ xuyên thấu nhẹ */
+  backdrop-filter: blur(10px) !important; /* Hiệu ứng mờ nền phía sau */
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important; /* Viền kính trong suốt */
+  border-radius: 24px !important; /* Bo góc siêu tròn hiện đại */
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 150, 136, 0.04) !important; /* Đổ bóng bóng dịu nhẹ */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important; /* Hiệu ứng di chuột mượt mà */
+}
+
+/* 3. Tạo viền Gradient phát sáng tinh tế quanh hộp */
+section[class*="why"] [class*="item"]::before,
+section[class*="why"] [class*="card"]::before,
+.why-choose-us .feature-item::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  border-radius: 24px !important;
+  padding: 1.5px !important; /* Độ dày của viền phát sáng */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 150, 136, 0.15),
+    rgba(0, 150, 136, 0.4)
+  ) !important;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: xor !important;
+  mask-composite: exclude !important;
+  pointer-events: none !important;
+  transition: all 0.4s ease !important;
+}
+
+/* 4. Hiệu ứng Hover siêu thực: Hộp bừng sáng và nhấc lên */
+section[class*="why"] [class*="item"]:hover,
+section[class*="why"] [class*="card"]:hover,
+section[class*="choose"] [class*="item"]:hover,
+.why-choose-us .feature-item:hover {
+  transform: translateY(-8px) scale(1.02) !important; /* Bay nhẹ lên và phình to 2% tạo chiều sâu */
+  background: rgba(255, 255, 255, 0.95) !important; /* Sáng bừng lên */
+  box-shadow: 0 20px 40px rgba(0, 150, 136, 0.15) !important; /* Hào quang xanh ngọc tỏa ra */
+}
+
+/* Thay đổi viền phát sáng khi di chuột vào */
+section[class*="why"] [class*="item"]:hover::before,
+.why-choose-us .feature-item:hover::before {
+  background: linear-gradient(
+    135deg,
+    #009688,
+    #80cbdc
+  ) !important; /* Chuyển màu viền neon xanh ngọc cực bắt mắt */
+}
+
+/* 5. Điểm nhấn cho Icon hình tròn bên trong: Bo viền kép xoay nhẹ */
+section[class*="why"] [class*="item"] .icon,
+section[class*="why"] [class*="item"] [class*="icon"],
+.why-choose-us .feature-item i,
+.why-choose-us .feature-item img {
+  background-color: rgba(
+    0,
+    150,
+    136,
+    0.08
+  ) !important; /* Nền icon trong suốt hơn */
+  border: 1px dashed rgba(0, 150, 136, 0.3) !important; /* Viền nét đứt cá tính bao quanh */
+  padding: 15px !important;
+  border-radius: 50% !important;
+  transition: all 0.4s ease !important;
+}
+
+/* Khi di chuột vào hộp, icon sẽ lắc nhẹ và đổi nền đậm */
+section[class*="why"] [class*="item"]:hover [class*="icon"],
+.why-choose-us .feature-item:hover i {
+  background-color: #009688 !important; /* Đổi sang màu xanh ngọc đậm */
+  color: #ffffff !important; /* Đổi màu icon bên trong sang trắng */
+  transform: rotate(15deg) scale(1.1) !important; /* Xoay nghiêng 15 độ và phóng to */
+}
+/*==================================================
+TRẢ TIÊU ĐỀ "TẠI SAO CHỌN ACE" VỀ GỐC CĂN GIỮA AN TOÀN
+==================================================*/
+@media (max-width: 768px) {
+  /* Ép tất cả các div tiêu đề chính tràn 100% màn hình, không cho phép chia cột */
+  .why-choose-us .container,
+  section[class*="why"] .container,
+  .why-choose-us .section-title,
+  section[class*="why"] [class*="title"] {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+}
+/*==================================================
+ÉP KHÍT KHOẢNG TRỐNG GIỮA SECTION DỊCH VỤ VÀ KHÁCH HÀNG (ALL DEVICES)
+==================================================*/
+
+/* 1. Áp dụng cho Máy tính (PC / Desktop) */
+section[class*="why"],
+section[id*="why"],
+section[class*="choose"],
+section[id*="choose"],
+.why-choose-us {
+  padding-bottom: 15px !important; /* Giảm tối đa khoảng đệm dưới của phần Dịch vụ */
+  margin-bottom: 0 !important;
+}
+
+/* Nhắm vào section Khách hàng ngay phía dưới để kéo sát lên */
+section[class*="feedback"],
+section[class*="testimonial"],
+section[class*="customer"],
+section[class*="review"],
+#testimonials,
+#feedback {
+  padding-top: 20px !important; /* Giảm tối đa khoảng đệm trên của phần Khách hàng */
+  margin-top: 0 !important;
+}
+
+/* 2. Áp dụng riêng cho Mobile & Tablet (Dưới 768px) để đảm bảo không bị dính sát quá mức */
+@media (max-width: 768px) {
+  section[class*="why"],
+  section[id*="why"],
+  section[class*="choose"],
+  .why-choose-us {
+    padding-bottom: 10px !important;
+  }
+
+  section[class*="feedback"],
+  section[class*="testimonial"],
+  section[class*="customer"],
+  section[class*="review"],
+  #testimonials,
+  #feedback {
+    padding-top: 15px !important;
+  }
+}
+/*==================================================
+ÉP KHÍT KHOẢNG TRỐNG GIỮA KHÁCH HÀNG VÀ TIN TỨC (ALL DEVICES)
+==================================================*/
+
+/* 1. Áp dụng cho Máy tính (PC / Desktop) */
+section[class*="feedback"],
+section[class*="testimonial"],
+section[class*="customer"],
+section[class*="review"],
+#testimonials,
+#feedback {
+  padding-bottom: 15px !important; /* Co ngắn khoảng đệm dưới của phần ý kiến khách hàng */
+  margin-bottom: 0 !important;
+}
+
+/* Nhắm vào phần Tin tức / Blog ngay phía dưới để kéo sát lên */
+section[class*="blog"],
+section[class*="news"],
+section[class*="post"],
+section[id*="blog"],
+section[id*="news"] {
+  padding-top: 20px !important; /* Co ngắn khoảng đệm trên của phần tin tức */
+  margin-top: 0 !important;
+}
+
+/* 2. Áp dụng riêng cho Mobile & Tablet (Dưới 768px) */
+@media (max-width: 768px) {
+  section[class*="feedback"],
+  section[class*="testimonial"],
+  section[class*="customer"],
+  section[class*="review"],
+  #testimonials,
+  #feedback {
+    padding-bottom: 10px !important;
+  }
+
+  section[class*="blog"],
+  section[class*="news"],
+  section[class*="post"],
+  section[id*="blog"],
+  section[id*="news"] {
+    padding-top: 15px !important;
+  }
+}
+/*==================================================
+ÉP KHÍT KHOẢNG TRỐNG GIỮA TIN TỨC VÀ ĐẶT LỊCH (ALL DEVICES)
+==================================================*/
+
+/* 1. Áp dụng cho Máy tính (PC / Desktop) */
+section[class*="blog"],
+section[class*="news"],
+section[class*="post"],
+section[id*="blog"],
+section[id*="news"] {
+  padding-bottom: 15px !important; /* Co ngắn khoảng đệm dưới của phần tin tức */
+  margin-bottom: 0 !important;
+}
+
+/* Nhắm vào phần Đặt Lịch Ngay / Đăng ký ở ngay phía dưới */
+section[class*="booking"],
+section[class*="appointment"],
+section[class*="cta"],
+section[class*="banner"],
+section[class*="contact-home"],
+#booking,
+#cta {
+  padding-top: 20px !important; /* Co ngắn khoảng đệm trên của phần đặt lịch */
+  margin-top: 0 !important;
+}
+
+/* 2. Áp dụng riêng cho Mobile & Tablet (Dưới 768px) */
+@media (max-width: 768px) {
+  section[class*="blog"],
+  section[class*="news"],
+  section[class*="post"],
+  section[id*="blog"],
+  section[id*="news"] {
+    padding-bottom: 10px !important;
+  }
+
+  section[class*="booking"],
+  section[class*="appointment"],
+  section[class*="cta"],
+  section[class*="banner"],
+  section[class*="contact-home"],
+  #booking,
+  #cta {
+    padding-top: 15px !important;
+  }
+}
+/*==================================================
+ÉP KHÍT KHOẢNG TRỐNG GIỮA THƯƠNG HIỆU VÀ SẢN PHẨM NỔI BẬT (ALL DEVICES)
+==================================================*/
+
+/* 1. Áp dụng cho Máy tính (PC / Desktop) */
+section[class*="brand"],
+section[class*="logo"],
+section[class*="partner"],
+section[id*="brand"],
+section[id*="logo"] {
+  padding-bottom: 15px !important; /* Co ngắn khoảng đệm dưới của phần logo thương hiệu */
+  margin-bottom: 0 !important;
+}
+
+/* Nhắm vào phần Sản phẩm nổi bật ở ngay phía dưới */
+section[class*="product"],
+section[class*="featured"],
+section[class*="shop"],
+#products,
+#featured-products {
+  padding-top: 20px !important; /* Co ngắn khoảng đệm trên của phần sản phẩm */
+  margin-top: 0 !important;
+}
+
+/* 2. Áp dụng riêng cho Mobile & Tablet (Dưới 768px) */
+@media (max-width: 768px) {
+  section[class*="brand"],
+  section[class*="logo"],
+  section[class*="partner"],
+  section[id*="brand"],
+  section[id*="logo"] {
+    padding-bottom: 10px !important;
+  }
+
+  section[class*="product"],
+  section[class*="featured"],
+  section[class*="shop"],
+  #products,
+  #featured-products {
+    padding-top: 15px !important;
+  }
+}
+/*==================================================
+NÚT XEM TẤT CẢ SẢN PHẨM TRANG CHỦ
+==================================================*/
+.view-more-products-wrapper {
+  text-align: center !important;
+  width: 100% !important;
+  margin-top: 35px !important; /* Khoảng cách từ hàng sản phẩm xuống nút */
+  margin-bottom: 15px !important;
+  display: block !important;
+}
+
+.btn-view-more-products {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background-color: transparent !important;
+  color: #009688 !important; /* Màu xanh ngọc chủ đạo của ACE */
+  border: 2px solid #009688 !important;
+  padding: 10px 24px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-radius: 30px !important; /* Bo cong tròn mềm mại giống nút "Cộng Tác Viên" */
+  text-decoration: none !important;
+  transition: all 0.25s ease-in-out !important;
+  box-shadow: 0 4px 10px rgba(0, 150, 136, 0.05) !important;
+}
+
+/* Hiệu ứng khi rê chuột vào trên PC */
+.btn-view-more-products:hover {
+  background-color: #009688 !important; /* Đổi thành nền xanh ngọc */
+  color: #ffffff !important; /* Chữ trắng */
+  box-shadow: 0 6px 15px rgba(0, 150, 136, 0.25) !important; /* Phát sáng nhẹ */
+  transform: translateY(-2px) !important; /* Nhấc nhẹ lên */
+}
+
+/* Hiệu ứng khi bấm ngón tay trên Mobile */
+.btn-view-more-products:active {
+  transform: scale(0.97) !important; /* Lún nhẹ nịnh tay */
+}
+
+.btn-view-more-products i {
+  font-size: 13px !important;
+  transition: transform 0.2s ease !important;
+}
+
+.btn-view-more-products:hover i {
+  transform: translateX(
+    4px
+  ) !important; /* Mũi tên dịch sang phải nhẹ khi di chuột */
+}
+
+/* Tối ưu riêng trên mobile */
+@media (max-width: 768px) {
+  .view-more-products-wrapper {
+    margin-top: 25px !important;
+  }
+  .btn-view-more-products {
+    padding: 8px 20px !important;
+    font-size: 13.5px !important;
+  }
+}
+/*==================================================
+CHỈ ĐỊNH ÉP KHÍT NÚT XEM THÊM VÀ PHẦN TIẾP THEO TRÊN MOBILE
+==================================================*/
+@media (max-width: 768px) {
+  /* 1. Co cực hạn khoảng trống phía dưới của section chứa sản phẩm */
+  section[class*="product"],
+  section[class*="featured"],
+  section[class*="shop"],
+  #products {
+    padding-bottom: 5px !important; /* Thu nhỏ padding đáy của phần sản phẩm */
+  }
+
+  /* 2. Co sát khoảng cách của wrapper bọc nút */
+  .view-more-products-wrapper {
+    margin-top: 10px !important; /* Ép sát nút lên trên gần sản phẩm */
+    margin-bottom: 0px !important; /* Triệt tiêu hoàn toàn margin bottom */
+    padding-bottom: 0 !important;
+  }
+
+  /* 3. Co cực hạn khoảng trống phía trên của section "Tại sao chọn ACE" */
+  section[class*="why"],
+  section[id*="why"],
+  section[class*="choose"],
+  .why-choose-us {
+    padding-top: 15px !important; /* Kéo toàn bộ chữ "Tại sao chọn ACE" sát lên trên nút */
+  }
+}
+/*==================================================
+CSS BIẾN HÓA FOOTER GỐC ĐẸP LỊM TIM TRÊN MOBILE
+==================================================*/
+@media (max-width: 768px) {
+  /* 1. Reset khoảng cách khung tổng */
+  footer.footer {
+    padding: 40px 0 25px 0 !important;
+    background-color: #0c182c !important; /* Giữ nguyên màu nền tối sang trọng */
+    color: #ffffff !important;
+  }
+
+  /* 2. CHÌA KHÓA: Tái cấu trúc Grid trên Mobile */
+  footer.footer .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Chia đôi màn hình thành 2 cột */
+    gap: 30px 15px !important; /* Khoảng cách hàng 30px, khoảng cách cột 15px */
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- CỘT 1 (ABOUT): Trải rộng 100%, căn giữa --- */
+  footer.footer .footer-grid > div:nth-child(1) {
+    grid-column: span 2 !important; /* Chiếm trọn chiều ngang */
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+
+  footer.footer .footer-about img {
+    max-width: 100px !important;
+    margin: 0 auto 15px auto !important;
+    display: block !important;
+  }
+
+  footer.footer .footer-about p {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    opacity: 0.8 !important;
+    max-width: 320px !important;
+    margin: 0 auto 18px auto !important;
+  }
+
+  footer.footer .footer-social {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 15px !important;
+  }
+
+  footer.footer .footer-social a {
+    width: 36px !important;
+    height: 36px !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+  }
+
+  /* --- CỘT 2 (LIÊN KẾT): BÁM SÁT MÉP TRÁI --- */
+  footer.footer .footer-grid > div:nth-child(2) {
+    grid-column: span 1 !important;
+    text-align: left !important;
+    padding-left: 20px !important; /* Giữ khoảng cách đệm nhẹ với mép màn hình trái */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  footer.footer .footer-grid > div:nth-child(2) ul li {
+    text-align: left !important; /* Đầu chữ cột trái bám lề trái */
+  }
+
+  /* --- CỘT 3 (DỊCH VỤ): ÉP BÁM SÁT MÉP PHẢI --- */
+  footer.footer .footer-grid > div:nth-child(3) {
+    grid-column: span 1 !important;
+    text-align: right !important; /* CHÌA KHÓA: Đẩy tiêu đề "Dịch vụ" sát lề phải */
+    padding-right: 20px !important; /* Giữ khoảng cách đệm nhẹ với mép màn hình phải */
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  footer.footer .footer-grid > div:nth-child(3) ul li {
+    text-align: right !important; /* CHÌA KHÓA: Đẩy toàn bộ chữ bên trong bám sát lề phải */
+  }
+  /* --- CỘT 4 (THÔNG TIN): Trải rộng 100% dưới cùng, căn giữa --- */
+  footer.footer .footer-grid > div:nth-child(4) {
+    grid-column: span 2 !important; /* Chiếm trọn chiều ngang */
+    text-align: center !important;
+    margin-top: 15px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important; /* Đường gạch ngăn cách nhẹ */
+    padding-top: 25px !important;
+  }
+
+  footer.footer .footer-grid > div:nth-child(4) h4 {
+    text-align: center !important;
+  }
+
+  footer.footer .footer-grid > div:nth-child(4) ul li {
+    display: block !important;
+    text-align: center !important;
+    font-size: 13.5px !important;
+    margin-bottom: 10px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  /* --- BẢN QUYỀN CHÂN TRANG --- */
+  footer.footer .footer-bottom {
+    margin-top: 30px !important;
+    padding-top: 15px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    font-size: 11px !important;
+    opacity: 0.6 !important;
+    text-align: center !important;
+  }
+}
+/*==================================================
+NÚT QUAY VỀ ĐẦU TRANG (BACK TO TOP)
+==================================================*/
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: #b30000; /* Màu đỏ đô chuẩn thương hiệu của đại ca */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 20px;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #8b0000;
+  transform: translateY(-5px); /* Hiệu ứng nhô lên khi di chuột vào */
+}
+/*==================================================
+CSS CHO CỤM NÚT LIÊN HỆ NỔI BẬT (HIỆU ỨNG ĐỘNG)
+==================================================*/
+.floating-contact-buttons {
+  position: fixed;
+  left: 20px;
+  bottom: 80px; /* Cách đáy màn hình 1 chút */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Khoảng cách giữa các nút */
+  z-index: 9999; /* Đảm bảo luôn nổi trên mọi nội dung */
+}
+
+/* Định dạng chung cho các nút tròn */
+.btn-float {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Bo tròn tuyệt đối */
+  font-size: 22px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Đổ bóng 3D cho nổi */
+}
+
+/* --- HIỆU ỨNG KHI DI CHUỘT VÀO (HOVER) --- */
+.btn-float:hover {
+  transform: scale(1.1) rotate(5deg); /* Phồng to và xoay nhẹ */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* --- ĐỊNH DẠNG RIÊNG CHO TỪNG NÚT --- */
+
+/* 1. Nút Facebook */
+.fb-btn {
+  background-color: #0078ff; /* Màu xanh Facebook chuẩn */
+}
+.fb-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 2. Nút Zalo */
+.zalo-btn {
+  background-color: #0091ff; /* Màu xanh Zalo chuẩn */
+}
+.zalo-btn:hover {
+  background-color: #0073e6;
+}
+
+/* 3. Nút Điện thoại */
+.phone-btn {
+  background-color: #cc0000; /* Màu đỏ đô thương hiệu */
+}
+.phone-btn:hover {
+  background-color: #990000;
+}
+
+/* --- CÔNG NGHỆ PHỤ TRỢ: HIỆU ỨNG NHẤP NHÁY (PULSE) CHO NÚT PHONE --- */
+.phone-pulse {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #cc0000;
+  animation: pulse-animation 1.5s infinite;
+  z-index: -1;
+}
+
+/* Định nghĩa chuyển động nhấp nháy */
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5); /* Bung rộng ra */
+    opacity: 0; /* Mờ dần đi */
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+/*==================================================
+HIỆU CHỈNH NÚT BACK TO TOP (THU NHỎ)
+==================================================*/
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* KÍCH THƯỚC CŨ ĐANG LÀ 45px x 45px */
+  /* BÂY GIỜ MÌNH SỬA LẠI CHO NHỎ BẰNG 1/4 - TỨC LÀ 35px x 35px */
+  width: 35px !important; /* Giảm từ 45px xuống 35px */
+  height: 35px !important; /* Giảm từ 45px xuống 35px */
+  background-color: #b30000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 18px !important; /* Giảm font size icon bên trong */
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  opacity: 0.8; /* Làm mờ nhẹ đi cho đỡ chói */
+}
+
+.back-to-top:hover {
+  background-color: #8b0000;
+  transform: translateY(-3px); /* Giảm độ nảy khi hover */
+  opacity: 1;
+}
+/* --- RESPONSIVE CHO MOBILE: THU NHỎ LẠI MỘT CHÚT --- */
+@media (max-width: 768px) {
+  .floating-contact-buttons {
+    left: 15px;
+    bottom: 60px;
+    gap: 12px;
+  }
+  .btn-float {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  .phone-pulse {
+    width: 35px;
+    height: 35px;
+  }
+}
+/*==================================================
+NÚT XEM THÊM (ĐẶT TẠI VỊ TRÍ KHOANH TRÒN)
+==================================================*/
+.blog-view-more {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 30px !important; /* Khoảng cách với lưới bài viết */
+  width: 100% !important;
+}
+
+.btn-more {
+  background-color: #b30000 !important; /* Màu đỏ thương hiệu */
+  color: #fff !important;
+  padding: 12px 30px !important;
+  text-decoration: none !important;
+  border-radius: 5px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-more:hover {
+  background-color: #8b0000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # Đảm bảo tên nhánh này trùng với nhánh chính trên GitHub của bạn
+
+media_folder: "images" # Thư mục lưu trữ hình ảnh
+public_folder: "images" # Đường dẫn hiển thị ảnh trên web
+
+collections:
+  - name: "blog"
+    label: "Bài viết"
+    folder: "blog" # Thư mục chứa các file bài viết mới (bạn cần có folder tên 'blog' ở thư mục gốc)
+    create: true # Cho phép tạo bài viết mới
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Tiêu đề", name: "title", widget: "string" }
+      - { label: "Ảnh đại diện", name: "image", widget: "image" }
+      - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Nội dung", name: "body", widget: "markdown" }
