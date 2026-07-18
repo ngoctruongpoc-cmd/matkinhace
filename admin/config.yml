@@ -1,7 +1,8 @@
 backend:
   name: github
-  repo: ngoctruongpoc-cmd/matkinhace # Phải đúng tên Repo đại ca vừa tạo
+  repo: ngoctruongpoc-cmd/matkinhace
   branch: main
+  base_url: https://api.github.com # Thêm dòng này để nó kết nối thẳng tới API GitHub
 
 media_folder: "images" # Thư mục lưu trữ hình ảnh
 public_folder: "images" # Đường dẫn hiển thị ảnh trên web
