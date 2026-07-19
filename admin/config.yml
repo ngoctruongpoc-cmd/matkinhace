@@ -1,18 +1,11 @@
-backend:
-  name: git-gateway
-  branch: main
-
-media_folder: "images"
-public_folder: "images"
-
 collections:
+  # 1. Các phần có nhiều mục (như danh sách)
   - name: "blog"
     label: "Tin tức"
     folder: "blog"
     create: true
     fields:
       - { label: "Tiêu đề", name: "title", widget: "string" }
-      - { label: "Ngày đăng", name: "date", widget: "datetime" }
       - { label: "Ảnh bìa", name: "image", widget: "image" }
       - { label: "Nội dung", name: "body", widget: "markdown" }
 
@@ -24,39 +17,31 @@ collections:
       - { label: "Tên sản phẩm", name: "title", widget: "string" }
       - { label: "Hình ảnh", name: "image", widget: "image" }
       - { label: "Giá", name: "price", widget: "number" }
-      - { label: "Mô tả", name: "description", widget: "text" }
 
   - name: "brands"
     label: "Thương hiệu"
     folder: "brands"
     create: true
     fields:
-      - { label: "Tên thương hiệu", name: "title", widget: "string" }
+      - { label: "Tên", name: "title", widget: "string" }
       - { label: "Logo", name: "image", widget: "image" }
 
-  - name: "pages"
-    label: "Trang nội dung"
+  # 2. Các phần nội dung cố định (Trang chủ, Giới thiệu, Liên hệ)
+  - name: "settings"
+    label: "Cấu hình Website"
     files:
-      - file: "about.json"
-        name: "about"
-        label: "Giới thiệu"
+      - file: "home.json"
+        name: "home"
+        label: "Trang chủ"
         fields:
-          - { label: "Tiêu đề", name: "title", widget: "string" }
-          - { label: "Nội dung", name: "body", widget: "markdown" }
+          - { label: "Tiêu đề chính", name: "hero_title", widget: "string" }
+          - { label: "Ảnh Banner", name: "hero_image", widget: "image" }
+          - { label: "Giới thiệu ngắn", name: "hero_desc", widget: "text" }
+
       - file: "contact.json"
         name: "contact"
         label: "Liên hệ"
         fields:
           - { label: "Địa chỉ", name: "address", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
           - { label: "Hotline", name: "phone", widget: "string" }
-
-  - name: "settings"
-    label: "Cấu hình chung"
-    files:
-      - file: "config.json"
-        name: "settings"
-        label: "Cài đặt"
-        fields:
-          - { label: "Tên Website", name: "site_name", widget: "string" }
-          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Email", name: "email", widget: "string" }

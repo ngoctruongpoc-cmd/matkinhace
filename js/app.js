@@ -1,53 +1,75 @@
-/*==================================================
-SECTION 21 - MOBILE MENU (CẬP NHẬT AN TOÀN)
-==================================================*/
-
-const mobileToggle = document.querySelector(".mobile-toggle");
-const mobileMenu = document.querySelector(".mobile-menu");
-const mobileClose = document.querySelector(".mobile-close");
-const mobileOverlay = document.querySelector(".mobile-overlay");
-
-function openMobileMenu() {
-  if (mobileMenu && mobileOverlay) {
-    mobileMenu.classList.add("active");
-    mobileOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Hàm tự động đổ dữ liệu vào HTML
+  async function fetchData(file, selector, callback) {
+    try {
+      const response = await fetch(`/${file}`);
+      const data = await response.json();
+      const element = document.querySelector(selector);
+      if (element && data) {
+        callback(element, data);
+      }
+    } catch (error) {
+      console.log(`Chưa có dữ liệu cho file: ${file}`);
+    }
   }
-}
 
-function closeMobileMenu() {
-  if (mobileMenu && mobileOverlay) {
-    mobileMenu.classList.remove("active");
-    mobileOverlay.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-}
+  // 2. Kết nối trang quản trị ra website
+  // Thay đổi tiêu đề Hero
+  fetchData(
+    "home.json",
+    ".hero-content h1",
+    (el, data) => (el.innerText = data.hero_title),
+  );
 
-// Bọc điều kiện kiểm tra: Chỉ gán sự kiện nếu nút bấm tồn tại trên màn hình
-if (mobileToggle) {
-  mobileToggle.addEventListener("click", openMobileMenu);
-}
+  // Thay đổi mô tả Hero
+  fetchData(
+    "home.json",
+    ".hero-content p",
+    (el, data) => (el.innerText = data.hero_desc),
+  );
 
-if (mobileClose) {
-  mobileClose.addEventListener("click", closeMobileMenu);
-}
-
-if (mobileOverlay) {
-  mobileOverlay.addEventListener("click", closeMobileMenu);
-}
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeMobileMenu();
-  }
-});
-// Xử lý đóng mở menu con (Accordion) trên giao diện Mobile
-document.querySelectorAll(".mobile-dropdown-toggle").forEach((toggle) => {
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault(); // Chặn không cho nhảy trang
-    const parent = this.parentElement;
-
-    // Toggle class active để đóng/mở
-    parent.classList.toggle("active");
+  // Thay đổi thông tin liên hệ ở Footer (Giả sử có class footer-contact-list)
+  fetchData("contact.json", ".footer-contact-list", (el, data) => {
+    el.innerHTML = `
+            <li>📍 ${data.address}</li>
+            <li>☎ ${data.phone}</li>
+            <li>✉ ${data.email}</li>
+        `;
   });
 });
+// Tự động load sản phẩm từ CMS
+async function loadProducts() {
+  const productList = document.getElementById("product-list");
+  if (!productList) return;
+
+  try {
+    // Lấy dữ liệu từ file dữ liệu sản phẩm của CMS
+    // Đại ca lưu ý: Nếu đại ca lưu sản phẩm vào folder 'products',
+    // Netlify CMS thường tạo file .json hoặc .md.
+    const response = await fetch("/products/index.json");
+    const products = await response.json();
+
+    if (products && products.length > 0) {
+      // Nếu có sản phẩm mới, ta xóa code cũ đi và hiển thị sản phẩm mới
+      productList.innerHTML = products
+        .map(
+          (p) => `
+                <article class="product-card">
+                    <div class="product-image"><img src="${p.image}" alt="${p.title}"></div>
+                    <div class="product-content">
+                        <h3>${p.title}</h3>
+                        <div class="product-price"><span>${p.price}đ</span></div>
+                        <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </article>
+            `,
+        )
+        .join("");
+    }
+  } catch (e) {
+    console.log("Đang dùng code cũ, chưa có dữ liệu sản phẩm từ CMS.");
+  }
+}
+
+// Chạy hàm khi trang web tải xong
+loadProducts();
