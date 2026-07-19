@@ -26,6 +26,14 @@ collections:
       - { label: "Giá", name: "price", widget: "number" }
       - { label: "Mô tả", name: "description", widget: "text" }
 
+  - name: "brands"
+    label: "Thương hiệu"
+    folder: "brands"
+    create: true
+    fields:
+      - { label: "Tên thương hiệu", name: "title", widget: "string" }
+      - { label: "Logo", name: "image", widget: "image" }
+
   - name: "pages"
     label: "Trang nội dung"
     files:
@@ -52,11 +60,3 @@ collections:
         fields:
           - { label: "Tên Website", name: "site_name", widget: "string" }
           - { label: "Logo", name: "logo", widget: "image" }
-- name: "brands"
-    label: "Thương hiệu"
-    folder: "brands"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Tên thương hiệu", name: "title", widget: "string"}
-      - {label: "Logo", name: "image", widget: "image"}
