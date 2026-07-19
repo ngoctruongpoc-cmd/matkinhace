@@ -1,18 +1,39 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: main # Đảm bảo đúng tên nhánh (main hoặc master)
 
-media_folder: "images" # Thư mục lưu trữ hình ảnh
-public_folder: "images" # Đường dẫn hiển thị ảnh trên web
+media_folder: "images" # Nơi chứa ảnh đại ca tải lên
+public_folder: "images"
 
 collections:
-  - name: "blog"
+  - name: "blog" # Mục bài viết
     label: "Bài viết"
-    folder: "blog" # Thư mục chứa các file bài viết mới (bạn cần có folder tên 'blog' ở thư mục gốc)
-    create: true # Cho phép tạo bài viết mới
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: "blog"
+    create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Tiêu đề", name: "title", widget: "string" }
-      - { label: "Ảnh đại diện", name: "image", widget: "image" }
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
+      - { label: "Ảnh bìa", name: "image", widget: "image" }
       - { label: "Nội dung", name: "body", widget: "markdown" }
+
+  - name: "products" # Mục sản phẩm (Cái này đại ca chắc chắn cần)
+    label: "Sản phẩm"
+    folder: "products"
+    create: true
+    fields:
+      - { label: "Tên sản phẩm", name: "title", widget: "string" }
+      - { label: "Hình ảnh", name: "image", widget: "image" }
+      - { label: "Giá", name: "price", widget: "number" }
+      - { label: "Mô tả", name: "description", widget: "text" }
+
+  - name: "settings" # Mục cài đặt chung (Logo, thông tin liên hệ)
+    label: "Cấu hình chung"
+    files:
+      - file: "config.json"
+        name: "settings"
+        label: "Cài đặt"
+        fields:
+          - { label: "Tên Website", name: "site_name", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Số điện thoại", name: "phone", widget: "string" }
