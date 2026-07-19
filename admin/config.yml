@@ -52,3 +52,11 @@ collections:
         fields:
           - { label: "Tên Website", name: "site_name", widget: "string" }
           - { label: "Logo", name: "logo", widget: "image" }
+- name: "brands"
+    label: "Thương hiệu"
+    folder: "brands"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tên thương hiệu", name: "title", widget: "string"}
+      - {label: "Logo", name: "image", widget: "image"}
