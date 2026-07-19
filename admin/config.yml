@@ -1,23 +1,22 @@
 backend:
   name: git-gateway
-  branch: main # Đảm bảo đúng tên nhánh (main hoặc master)
+  branch: main
 
-media_folder: "images" # Nơi chứa ảnh đại ca tải lên
+media_folder: "images"
 public_folder: "images"
 
 collections:
-  - name: "blog" # Mục bài viết
-    label: "Bài viết"
+  - name: "blog"
+    label: "Tin tức"
     folder: "blog"
     create: true
-    slug: "{{slug}}"
     fields:
       - { label: "Tiêu đề", name: "title", widget: "string" }
       - { label: "Ngày đăng", name: "date", widget: "datetime" }
       - { label: "Ảnh bìa", name: "image", widget: "image" }
       - { label: "Nội dung", name: "body", widget: "markdown" }
 
-  - name: "products" # Mục sản phẩm (Cái này đại ca chắc chắn cần)
+  - name: "products"
     label: "Sản phẩm"
     folder: "products"
     create: true
@@ -27,7 +26,24 @@ collections:
       - { label: "Giá", name: "price", widget: "number" }
       - { label: "Mô tả", name: "description", widget: "text" }
 
-  - name: "settings" # Mục cài đặt chung (Logo, thông tin liên hệ)
+  - name: "pages"
+    label: "Trang nội dung"
+    files:
+      - file: "about.json"
+        name: "about"
+        label: "Giới thiệu"
+        fields:
+          - { label: "Tiêu đề", name: "title", widget: "string" }
+          - { label: "Nội dung", name: "body", widget: "markdown" }
+      - file: "contact.json"
+        name: "contact"
+        label: "Liên hệ"
+        fields:
+          - { label: "Địa chỉ", name: "address", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Hotline", name: "phone", widget: "string" }
+
+  - name: "settings"
     label: "Cấu hình chung"
     files:
       - file: "config.json"
@@ -36,4 +52,3 @@ collections:
         fields:
           - { label: "Tên Website", name: "site_name", widget: "string" }
           - { label: "Logo", name: "logo", widget: "image" }
-          - { label: "Số điện thoại", name: "phone", widget: "string" }
