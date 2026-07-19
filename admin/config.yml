@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: ngoctruongpoc-cmd/matkinhace
+  name: git-gateway
   branch: main
-  base_url: https://api.github.com # Thêm dòng này để nó kết nối thẳng tới API GitHub
 
 media_folder: "images" # Thư mục lưu trữ hình ảnh
 public_folder: "images" # Đường dẫn hiển thị ảnh trên web
