@@ -206,12 +206,16 @@
             <a href="tel:0818256266" class="hotline-btn"> 0818 256 266 </a>
           </div>
           <!-- Mobile Toggle -->
+<!-- Ô checkbox ẩn điều khiển menu -->
+    <input type="checkbox" id="menu-toggle-checkbox" style="display: none;">
+    
+    <!-- Nút 3 gạch thay thế -->
+    <label for="menu-toggle-checkbox" class="mobile-toggle" aria-label="Mở menu" style="cursor: pointer;">
+      <i class="fa-solid fa-bars"></i>
+    </label>
 
-<button class="mobile-toggle" aria-label="Mở menu" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m) m.style.cssText='display:block !important; visibility:visible !important; opacity:1 !important; transform:translateX(0) !important; left:0 !important;'; if(o) o.style.cssText='display:block !important; visibility:visible !important; opacity:1 !important;';">
-  <i class="fa-solid fa-bars"></i>
-</button>
-
-<div class="mobile-overlay" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m) m.style.cssText='display:none !important;'; if(o) o.style.cssText='display:none !important;';"></div>        </div>
+    <div class="mobile-overlay"></div>
+       </div>
       </div>
     </header>
 
