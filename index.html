@@ -205,11 +205,14 @@
 
             <a href="tel:0818256266" class="hotline-btn"> 0818 256 266 </a>
           </div>
-         <!-- Mobile Toggle -->
-   <button class="mobile-toggle" aria-label="Mở menu" onclick="document.querySelector('.mobile-menu').style.cssText = 'visibility: visible !important; opacity: 1 !important; transform: translateX(0) !important;'; document.querySelector('.mobile-overlay').style.cssText = 'visibility: visible !important; opacity: 1 !important;';">
+        <!-- Mobile Toggle -->
+    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.body.classList.toggle('menu-open');">
       <i class="fa-solid fa-bars"></i>
     </button>
-    <div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.cssText = ''; document.querySelector('.mobile-overlay').style.cssText = '';"></div>
+    <div class="mobile-overlay" onclick="document.body.classList.remove('menu-open');"></div>
+          <button class="mobile-close" onclick="document.body.classList.remove('menu-open');">
+  <i class="fa-solid fa-xmark"></i>
+</button>
 
     <!-- Hero sẽ làm ở Part 02 -->
     <!-- ==================================================
