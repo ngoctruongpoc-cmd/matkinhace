@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  // 1. Tự động tải sản phẩm từ file products.json
   try {
-    // Trỏ thẳng vào file products.json chuẩn nằm trong thư mục _data
     const res = await fetch('/_data/products.json');
     const products = await res.json();
     const grid = document.getElementById('product-list');
@@ -26,5 +26,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   } catch (e) {
     console.log("Đang tải dữ liệu sản phẩm...");
+  }
+
+  // 2. Kích hoạt nút 3 gạch menu mobile
+  const menuBtn = document.querySelector('.menu-toggle, .hamburger, header .fa-bars, .nav-toggle, [aria-label="Menu"]');
+  const navMenu = document.querySelector('nav ul, .nav-menu, .mobile-menu');
+  
+  // Tự tìm theo cấu trúc thông dụng nếu không khớp class trên
+  const toggleBtn = document.querySelector('.fa-bars') || document.querySelector('.navbar-toggler') || document.querySelector('header .fa-bars');
+  const targetNav = document.querySelector('nav') || document.querySelector('.nav-links');
+
+  if (toggleBtn && targetNav) {
+    toggleBtn.addEventListener('click', () => {
+      targetNav.classList.toggle('active');
+    });
   }
 });
