@@ -209,12 +209,9 @@
 <!-- Ô checkbox ẩn điều khiển menu -->
     <input type="checkbox" id="menu-toggle-checkbox" style="display: none;">
     
-    <!-- Nút 3 gạch thay thế -->
-    <label for="menu-toggle-checkbox" class="mobile-toggle" aria-label="Mở menu" style="cursor: pointer;">
-      <i class="fa-solid fa-bars"></i>
-    </label>
-
-    <div class="mobile-overlay"></div>
+    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.querySelector('.mobile-menu').classList.add('active'); document.querySelector('.mobile-overlay').classList.add('active');">
+  <i class="fa-solid fa-bars"></i>
+</button>
        </div>
       </div>
     </header>
