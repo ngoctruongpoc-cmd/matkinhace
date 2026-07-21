@@ -209,7 +209,6 @@
    <button class="mobile-toggle" aria-label="Mở menu" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = 'display: block !important; right: 0 !important; visibility: visible !important; opacity: 1 !important; z-index: 999999 !important;'; } if(o){ o.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; z-index: 999998 !important;'; }">
   <i class="fa-solid fa-bars"></i>
 </button>
-<div class="mobile-overlay" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = ''; } if(o){ o.style.cssText = ''; }"></div>  </header>
     <!-- Hero sẽ làm ở Part 02 -->
     <!-- ==================================================
 SECTION 12
@@ -417,7 +416,7 @@ BRANDS
        <button class="mobile-close" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = ''; } if(o){ o.style.cssText = ''; }">
   <i class="fa-solid fa-xmark"></i>
 </button>
-        <div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.cssText = ''; document.querySelector('.mobile-overlay').style.cssText = '';"></div>
+        <div class="mobile-overlay" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = ''; } if(o){ o.style.cssText = ''; }"></div>
       </div>
       <nav class="mobile-nav">
         <a href="#">Trang chủ</a>
