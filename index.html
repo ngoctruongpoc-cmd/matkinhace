@@ -206,9 +206,9 @@
           </div>
         <!-- Mobile Toggle -->
    <!-- Mobile Toggle -->
-    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.body.classList.toggle('menu-open');">
+    <button class="mobile-toggle" id="my-menu-btn" aria-label="Mở menu">
   <i class="fa-solid fa-bars"></i>
-</button>    
+</button>
     <!-- Hero sẽ làm ở Part 02 -->
     <!-- ==================================================
 SECTION 12
@@ -523,7 +523,40 @@ CỤM NÚT LIÊN HỆ NỔI BẬT (FACEBOOK - ZALO - PHONE)
   </div>
 </div>
 
-<div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.right = '-320px'; this.style.cssText = '';"></div>  </body>
+<div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.right = '-320px'; this.style.cssText = '';"></div> 
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById('my-menu-btn');
+    const menu = document.querySelector('.mobile-menu');
+    const overlay = document.querySelector('.mobile-overlay');
+    const closeBtn = document.querySelector('.mobile-close');
+
+    if(btn && menu) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        menu.style.cssText = "position: fixed !important; top: 0 !important; right: 0 !important; width: 300px !important; height: 100vh !important; background: #fff !important; z-index: 999999 !important; transition: 0.35s ease !important;";
+        if(overlay) {
+          overlay.style.cssText = "display: block !important; position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.4) !important; z-index: 999998 !important;";
+        }
+      });
+    }
+
+    if(closeBtn && menu) {
+      closeBtn.addEventListener('click', function() {
+        menu.style.cssText = "";
+        if(overlay) { overlay.style.cssText = ""; }
+      });
+    }
+
+    if(overlay) {
+      overlay.addEventListener('click', function() {
+        menu.style.cssText = "";
+        overlay.style.cssText = "";
+      });
+    }
+  });
+</script>
+  </body>
 </html>
 
 <!-- ==================================================
