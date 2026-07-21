@@ -206,9 +206,9 @@
             <a href="tel:0818256266" class="hotline-btn"> 0818 256 266 </a>
           </div>
         <!-- Mobile Toggle -->
-   <button class="mobile-toggle" aria-label="Mở menu" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = 'display: block !important; right: 0 !important; visibility: visible !important; opacity: 1 !important; z-index: 999999 !important;'; } if(o){ o.style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important; z-index: 999998 !important;'; }">
-  <i class="fa-solid fa-bars"></i>
-</button>
+   <a href="javascript:void(0);" class="mobile-toggle" aria-label="Mở menu" style="position: relative !important; z-index: 9999999 !important; display: flex !important; align-items: center !important; justify-content: center !important;" onclick="document.querySelector('.mobile-menu').style.cssText = 'position: fixed !important; top: 0 !important; right: 0 !important; width: 300px !important; height: 100vh !important; background: #fff !important; z-index: 999999 !important; transition: 0.35s ease !important;'; document.querySelector('.mobile-overlay').style.cssText = 'display: block !important; position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.35) !important; z-index: 999998 !important;';">
+  <i class="fa-solid fa-bars" style="pointer-events: none;"></i>
+</a>
     <!-- Hero sẽ làm ở Part 02 -->
     <!-- ==================================================
 SECTION 12
