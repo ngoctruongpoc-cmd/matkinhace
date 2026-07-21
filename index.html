@@ -207,12 +207,11 @@
           </div>
           <!-- Mobile Toggle -->
 
-<button class="mobile-toggle" id="hamburger-btn" aria-label="Mở menu">
+<button class="mobile-toggle" aria-label="Mở menu" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m) m.style.cssText='display:block !important; visibility:visible !important; opacity:1 !important; transform:translateX(0) !important; left:0 !important;'; if(o) o.style.cssText='display:block !important; visibility:visible !important; opacity:1 !important;';">
   <i class="fa-solid fa-bars"></i>
 </button>
 
-<div class="mobile-overlay"></div>
-        </div>
+<div class="mobile-overlay" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m) m.style.cssText='display:none !important;'; if(o) o.style.cssText='display:none !important;';"></div>        </div>
       </div>
     </header>
 
