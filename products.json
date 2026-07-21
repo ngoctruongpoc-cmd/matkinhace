@@ -1,1 +1,19 @@
 
+[
+  {
+    "title": "RayBan RX5345",
+    "image": "images/products/rayban-rx5345.png",
+    "price": "3.990.000đ",
+    "old_price": "4.590.000đ",
+    "save": "Tiết kiệm 13%",
+    "badge": "NEW"
+  },
+  {
+    "title": "Oakley Crosslink",
+    "image": "images/products/oakley-crosslink.png",
+    "price": "4.590.000đ",
+    "old_price": "5.290.000đ",
+    "save": "Tiết kiệm 13%",
+    "badge": "HOT"
+  }
+]
