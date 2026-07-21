@@ -206,7 +206,7 @@
             <a href="tel:0818256266" class="hotline-btn"> 0818 256 266 </a>
           </div>
         <!-- Mobile Toggle -->
-    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.querySelector('.mobile-menu').classList.add('active'); document.querySelector('.mobile-overlay').classList.add('active');">
+    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.querySelector('.mobile-menu').style.cssText = 'display: block !important; right: 0 !important; visibility: visible !important; opacity: 1 !important;'; document.querySelector('.mobile-overlay').style.cssText = 'display: block !important; visibility: visible !important; opacity: 1 !important;';">
   <i class="fa-solid fa-bars"></i>
 </button>
     <div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').classList.remove('active'); document.querySelector('.mobile-overlay').classList.remove('active');"></div>
@@ -415,9 +415,10 @@ BRANDS
     <div class="mobile-menu">
       <div class="mobile-menu-header">
         <span>MENU</span>
-        <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('active'); document.querySelector('.mobile-overlay').classList.remove('active');">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <button class="mobile-close" onclick="document.querySelector('.mobile-menu').style.cssText = ''; document.querySelector('.mobile-overlay').style.cssText = '';">
+  <i class="fa-solid fa-xmark"></i>
+</button>
+        <div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.cssText = ''; document.querySelector('.mobile-overlay').style.cssText = '';"></div>
       </div>
       <nav class="mobile-nav">
         <a href="#">Trang chủ</a>
