@@ -66,3 +66,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
+.mobile-menu.open {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  left: 0 !important;
+}
+.mobile-overlay.open {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
