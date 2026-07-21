@@ -28,35 +28,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Đang tải dữ liệu sản phẩm...");
   }
 
-  // 2. Kích hoạt nút 3 gạch mở menu mobile
+  // 2. Tự động tìm và gán sự kiện mở/đóng menu mobile chuẩn xác nhất
   const mobileToggle = document.querySelector('.mobile-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileClose = document.querySelector('.mobile-close');
   const mobileOverlay = document.querySelector('.mobile-overlay');
 
-  if (mobileToggle && mobileMenu) {
+  if (mobileToggle) {
     mobileToggle.addEventListener('click', (e) => {
       e.preventDefault();
-      mobileMenu.classList.add('active');
-      if (mobileOverlay) mobileOverlay.classList.add('active');
+      document.body.classList.toggle('menu-open');
     });
   }
 
-  if (mobileClose && mobileMenu) {
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      if (mobileOverlay) mobileOverlay.classList.remove('active');
+  if (mobileClose) {
+    mobileClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.remove('menu-open');
     });
   }
 
-  if (mobileOverlay && mobileMenu) {
-    mobileOverlay.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.remove('menu-open');
     });
   }
 
-  // Xử lý menu con trượt xuống
+  // Xử lý menu con trượt xuống (dropdown)
   const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
   dropdownToggles.forEach(toggle => {
     toggle.addEventListener('click', (e) => {
@@ -66,25 +65,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
-.mobile-menu.open {
-  visibility: visible !important;
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-  left: 0 !important;
-}
-.mobile-overlay.open {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-body.menu-open .mobile-menu {
-  visibility: visible !important;
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-  left: 0 !important;
-  display: block !important;
-}
-body.menu-open .mobile-overlay {
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: block !important;
-}
