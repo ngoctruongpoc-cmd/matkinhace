@@ -7269,3 +7269,7 @@ body.menu-open .mobile-overlay {
     opacity: 1 !important;
   }
 }
+.mobile-toggle {
+  z-index: 9999999 !important;
+  position: relative !important;
+}
