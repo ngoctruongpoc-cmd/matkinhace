@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Đang tải dữ liệu sản phẩm...");
   }
 
-  // 2. Kích hoạt menu mobile chuẩn xác 100%
+  // 2. Kích hoạt menu mobile chạy 100%
   const hamburger = document.getElementById('hamburger-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileClose = document.querySelector('.mobile-close');
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', (e) => {
       e.preventDefault();
-      mobileMenu.style.cssText = 'visibility: visible !important; opacity: 1 !important; transform: translateX(0) !important;';
+      mobileMenu.style.cssText = 'visibility: visible !important; opacity: 1 !important; transform: translateX(0) !important; left: 0 !important;';
       if (mobileOverlay) mobileOverlay.style.cssText = 'visibility: visible !important; opacity: 1 !important;';
     });
   }
