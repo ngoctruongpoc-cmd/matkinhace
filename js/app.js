@@ -76,3 +76,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   visibility: visible !important;
   opacity: 1 !important;
 }
+body.menu-open .mobile-menu {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  left: 0 !important;
+  display: block !important;
+}
+body.menu-open .mobile-overlay {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
