@@ -206,9 +206,9 @@
           </div>
         <!-- Mobile Toggle -->
    <!-- Mobile Toggle -->
-    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.querySelector('.mobile-menu').style.cssText = 'position: fixed !important; top: 0 !important; right: 0 !important; width: 300px !important; height: 100vh !important; background: #fff !important; z-index: 999999 !important; transition: 0.35s ease !important;'; document.querySelector('.mobile-overlay').style.cssText = 'display: block !important; position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.35) !important; z-index: 999998 !important;';">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+    <button class="mobile-toggle" aria-label="Mở menu" onclick="document.body.classList.toggle('menu-open');">
+  <i class="fa-solid fa-bars"></i>
+</button>    
     <!-- Hero sẽ làm ở Part 02 -->
     <!-- ==================================================
 SECTION 12
