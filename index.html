@@ -409,15 +409,13 @@ BRANDS
     </section>
     <!-- ====================================== MOBILE MENU
     ====================================== -->
-
-    <div class="mobile-menu">
+<div class="mobile-menu" style="position: fixed !important; top: 0 !important; right: -320px !important; width: 300px !important; height: 100vh !important; background: #fff !important; z-index: 999999 !important; transition: 0.35s ease !important;">
       <div class="mobile-menu-header">
         <span>MENU</span>
        <button class="mobile-close" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = ''; } if(o){ o.style.cssText = ''; }">
   <i class="fa-solid fa-xmark"></i>
 </button>
-        <div class="mobile-overlay" onclick="let m = document.querySelector('.mobile-menu'); let o = document.querySelector('.mobile-overlay'); if(m){ m.style.cssText = ''; } if(o){ o.style.cssText = ''; }"></div>
-      </div>
+        
       <nav class="mobile-nav">
         <a href="#">Trang chủ</a>
 
@@ -521,7 +519,11 @@ CỤM NÚT LIÊN HỆ NỔI BẬT (FACEBOOK - ZALO - PHONE)
     <!-- Thêm hiệu ứng rung nhẹ cho nút phone -->
     <span class="phone-pulse"></span>
 </div>
-  </body>
+      </div>
+  </div>
+</div>
+
+<div class="mobile-overlay" onclick="document.querySelector('.mobile-menu').style.right = '-320px'; this.style.cssText = '';"></div>  </body>
 </html>
 
 <!-- ==================================================
