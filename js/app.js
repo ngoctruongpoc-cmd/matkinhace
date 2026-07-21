@@ -28,17 +28,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Đang tải dữ liệu sản phẩm...");
   }
 
-  // 2. Kích hoạt nút 3 gạch menu mobile
-  const menuBtn = document.querySelector('.menu-toggle, .hamburger, header .fa-bars, .nav-toggle, [aria-label="Menu"]');
-  const navMenu = document.querySelector('nav ul, .nav-menu, .mobile-menu');
-  
-  // Tự tìm theo cấu trúc thông dụng nếu không khớp class trên
-  const toggleBtn = document.querySelector('.fa-bars') || document.querySelector('.navbar-toggler') || document.querySelector('header .fa-bars');
-  const targetNav = document.querySelector('nav') || document.querySelector('.nav-links');
+  // 2. Kích hoạt menu mobile (Nút 3 gạch)
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileClose = document.querySelector('.mobile-close');
+  const mobileOverlay = document.querySelector('.mobile-overlay');
 
-  if (toggleBtn && targetNav) {
-    toggleBtn.addEventListener('click', () => {
-      targetNav.classList.toggle('active');
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.add('active');
+      if (mobileOverlay) mobileOverlay.classList.add('active');
     });
   }
+
+  if (mobileClose && mobileMenu) {
+    mobileClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      if (mobileOverlay) mobileOverlay.classList.remove('active');
+    });
+  }
+
+  if (mobileOverlay && mobileMenu) {
+    mobileOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+    });
+  }
+
+  // Xử lý menu con trượt xuống trong mobile menu
+  const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const parent = toggle.parentElement;
+      parent.classList.toggle('active');
+    });
+  });
 });
