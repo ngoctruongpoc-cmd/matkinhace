@@ -7273,3 +7273,6 @@ body.menu-open .mobile-overlay {
   z-index: 9999999 !important;
   position: relative !important;
 }
+.header {
+  pointer-events: auto !important;
+}
