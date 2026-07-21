@@ -28,40 +28,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("Đang tải dữ liệu sản phẩm...");
   }
 
-  // 2. Kích hoạt menu mobile (Nút 3 gạch)
-  const mobileToggle = document.querySelector('.mobile-toggle');
+  // 2. Kích hoạt menu mobile chuẩn xác 100%
+  const hamburger = document.getElementById('hamburger-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
   const mobileClose = document.querySelector('.mobile-close');
   const mobileOverlay = document.querySelector('.mobile-overlay');
 
-  if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.add('active');
-      if (mobileOverlay) mobileOverlay.classList.add('active');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileMenu.style.cssText = 'visibility: visible !important; opacity: 1 !important; transform: translateX(0) !important;';
+      if (mobileOverlay) mobileOverlay.style.cssText = 'visibility: visible !important; opacity: 1 !important;';
     });
   }
 
   if (mobileClose && mobileMenu) {
-    mobileClose.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      if (mobileOverlay) mobileOverlay.classList.remove('active');
+    mobileClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      mobileMenu.style.cssText = '';
+      if (mobileOverlay) mobileOverlay.style.cssText = '';
     });
   }
 
   if (mobileOverlay && mobileMenu) {
     mobileOverlay.addEventListener('click', () => {
-      mobileMenu.classList.remove('active');
-      mobileOverlay.classList.remove('active');
+      mobileMenu.style.cssText = '';
+      mobileOverlay.style.cssText = '';
     });
   }
-
-  // Xử lý menu con trượt xuống trong mobile menu
-  const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
-  dropdownToggles.forEach(toggle => {
-    toggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const parent = toggle.parentElement;
-      parent.classList.toggle('active');
-    });
-  });
 });
