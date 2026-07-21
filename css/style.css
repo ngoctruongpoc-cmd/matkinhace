@@ -7245,3 +7245,27 @@ body.menu-open .mobile-overlay {
   display: block !important;
   z-index: 999998 !important;
 }
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    right: -320px !important;
+    transition: all 0.35s ease !important;
+  }
+  .mobile-menu.force-show {
+    visibility: visible !important;
+    opacity: 1 !important;
+    right: 0 !important;
+  }
+  .mobile-overlay {
+    display: block !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transition: all 0.35s ease !important;
+  }
+  .mobile-overlay.force-show {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
