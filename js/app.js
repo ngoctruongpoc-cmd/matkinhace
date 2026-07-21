@@ -57,3 +57,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+/* Khi checkbox được bấm chọn, tự động lôi cái menu mobile ra hiển thị */
+#menu-toggle-checkbox:checked ~ .mobile-menu,
+#menu-toggle-checkbox:checked ~ .mobile-overlay {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  display: block !important;
+}
